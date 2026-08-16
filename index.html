@@ -9,369 +9,69 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#efe8d8;
-    --paper-alt:#e6dcc6;
-    --card:#faf7ee;
-    --ink:#211d17;
-    --ink-soft:#57503f;
-    --red:#a9392a;
-    --green:#33553f;
-    --gold:#b6822b;
-    --line:#c9bd9d;
-    --tag-shadow: rgba(33,29,23,0.18);
+    --paper:#efe8d8; --paper-alt:#e6dcc6; --card:#faf7ee; --ink:#211d17;
+    --ink-soft:#57503f; --red:#a9392a; --green:#33553f; --gold:#b6822b;
+    --line:#c9bd9d; --tag-shadow: rgba(33,29,23,0.18);
   }
-
   *{box-sizing:border-box;}
-
-  body{
-    margin:0;
-    background:
-      radial-gradient(ellipse at top left, #f4efe0 0%, var(--paper) 55%),
-      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(90,80,55,0.05) 28px);
-    color:var(--ink);
-    font-family:'Fraunces', serif;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit;}
-
-  ::selection{background:var(--gold); color:var(--card);}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    max-width:920px;
-    margin:0 auto;
-    padding:5.5rem 1.5rem 3rem;
-    text-align:left;
-    border-bottom:1px solid var(--line);
-  }
-  .hero .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--red);
-    display:inline-block;
-    padding:0.25rem 0.6rem;
-    border:1px solid var(--red);
-    border-radius:2px;
-    margin-bottom:1.4rem;
-  }
-  .hero h1{
-    font-size:clamp(3rem, 9vw, 5.6rem);
-    line-height:0.92;
-    margin:0 0 0.3em 0;
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-  .hero h1 em{
-    font-style:italic;
-    font-weight:500;
-    color:var(--green);
-  }
-  .hero p{
-    max-width:46ch;
-    font-size:1.15rem;
-    color:var(--ink-soft);
-    line-height:1.55;
-  }
-  .hero .scrawl{
-    font-family:'Caveat', cursive;
-    font-size:1.6rem;
-    color:var(--red);
-    display:inline-block;
-    margin-top:0.6rem;
-    transform:rotate(-2deg);
-  }
-
-  /* ---------- INDEX ---------- */
-  .index-wrap{
-    max-width:920px;
-    margin:0 auto;
-    padding:3rem 1.5rem 6rem;
-  }
-  .index-hint{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.78rem;
-    color:var(--ink-soft);
-    letter-spacing:0.03em;
-    margin-bottom:2rem;
-  }
-
+  body{margin:0;background:radial-gradient(ellipse at top left, #f4efe0 0%, var(--paper) 55%),repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(90,80,55,0.05) 28px);color:var(--ink);font-family:'Fraunces', serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;} ::selection{background:var(--gold); color:var(--card);}
+  .hero{max-width:920px;margin:0 auto;padding:5.5rem 1.5rem 3rem;border-bottom:1px solid var(--line);}
+  .hero .eyebrow{font-family:'JetBrains Mono', monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);display:inline-block;padding:0.25rem 0.6rem;border:1px solid var(--red);border-radius:2px;margin-bottom:1.4rem;}
+  .hero h1{font-size:clamp(3rem, 9vw, 5.6rem);line-height:0.92;margin:0 0 0.3em 0;font-weight:600;letter-spacing:-0.01em;}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--green);}
+  .hero p{max-width:46ch;font-size:1.15rem;color:var(--ink-soft);line-height:1.55;}
+  .hero .scrawl{font-family:'Caveat', cursive;font-size:1.6rem;color:var(--red);display:inline-block;margin-top:0.6rem;transform:rotate(-2deg);}
+  .index-wrap{max-width:920px;margin:0 auto;padding:3rem 1.5rem 6rem;}
+  .index-hint{font-family:'JetBrains Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.03em;margin-bottom:2rem;}
   .letter-group{margin-bottom:1.2rem;}
-  .letter-group > .letter{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:2.6rem;
-    color:var(--line);
-    -webkit-text-stroke:1px var(--ink-soft);
-    color:transparent;
-    line-height:1;
-    margin:0 0 0.6rem 0;
-    user-select:none;
-  }
-
-  .entry{
-    border-top:1px solid var(--line);
-  }
+  .letter-group > .letter{font-family:'Fraunces', serif;font-style:italic;font-weight:500;font-size:2.6rem;color:transparent;-webkit-text-stroke:1px var(--ink-soft);line-height:1;margin:0 0 0.6rem 0;user-select:none;}
+  .entry{border-top:1px solid var(--line);}
   .entry:last-child{border-bottom:1px solid var(--line);}
-
-  .entry-tag{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:1rem;
-    width:100%;
-    background:none;
-    border:none;
-    text-align:left;
-    cursor:pointer;
-    padding:1.05rem 0.2rem;
-    font-family:inherit;
-  }
-  .entry-tag:hover .name-plate{
-    background:var(--card);
-    transform:translateY(-2px) rotate(-0.4deg);
-    box-shadow:0 6px 14px var(--tag-shadow);
-  }
-
-  .name-plate{
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    font-size:0.95rem;
-    letter-spacing:0.02em;
-    background:var(--paper-alt);
-    padding:0.5rem 0.9rem;
-    border-radius:3px;
-    box-shadow:0 2px 5px var(--tag-shadow);
-    transition:all 0.18s ease;
-    white-space:nowrap;
-  }
-  .entry-meta{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
-    color:var(--ink-soft);
-    flex:1;
-    text-align:right;
-    letter-spacing:0.02em;
-  }
-  .chev{
-    font-size:1.1rem;
-    color:var(--red);
-    transition:transform 0.25s ease;
-    flex-shrink:0;
-    width:1.2em;
-    text-align:center;
-  }
+  .entry-tag{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;background:none;border:none;text-align:left;cursor:pointer;padding:1.05rem 0.2rem;font-family:inherit;}
+  .entry-tag:hover .name-plate{background:var(--card);transform:translateY(-2px) rotate(-0.4deg);box-shadow:0 6px 14px var(--tag-shadow);}
+  .name-plate{font-family:'JetBrains Mono', monospace;font-weight:700;font-size:0.95rem;letter-spacing:0.02em;background:var(--paper-alt);padding:0.5rem 0.9rem;border-radius:3px;box-shadow:0 2px 5px var(--tag-shadow);transition:all 0.18s ease;white-space:nowrap;}
+  .entry-meta{font-family:'JetBrains Mono', monospace;font-size:0.72rem;color:var(--ink-soft);flex:1;text-align:right;letter-spacing:0.02em;}
+  .chev{font-size:1.1rem;color:var(--red);transition:transform 0.25s ease;flex-shrink:0;width:1.2em;text-align:center;}
   .entry.open .chev{transform:rotate(45deg);}
-
-  /* ---------- PANEL ---------- */
-  .panel{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.4s ease;
-  }
-  .entry.open .panel{max-height:1400px;}
-
-  .panel-inner{
-    padding:0.4rem 0.2rem 2.4rem;
-    display:flex;
-    gap:1.5rem;
-    flex-wrap:wrap;
-    align-items:flex-start;
-  }
-
-  .photo-card{
-    background:var(--card);
-    padding:0.6rem 0.6rem 0.9rem;
-    box-shadow:0 8px 18px rgba(33,29,23,0.14);
-    width:210px;
-    cursor:zoom-in;
-    transition:transform 0.2s ease;
-  }
-  .photo-card:nth-child(1){transform:rotate(-1.6deg);}
-  .photo-card:nth-child(2){transform:rotate(1.1deg);}
-  .photo-card:nth-child(3){transform:rotate(-0.6deg);}
+  .panel{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+  .entry.open .panel{max-height:2400px;}
+  .panel-inner{padding:0.4rem 0.2rem 2.4rem;display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start;}
+  .photo-card{background:var(--card);padding:0.6rem 0.6rem 0.9rem;box-shadow:0 8px 18px rgba(33,29,23,0.14);width:210px;cursor:zoom-in;transition:transform 0.2s ease;}
+  .photo-card:nth-child(odd){transform:rotate(-1.4deg);}
+  .photo-card:nth-child(even){transform:rotate(1.1deg);}
   .photo-card:hover{transform:scale(1.03) rotate(0deg); z-index:2;}
-
-  .photo-card img{
-    width:100%;
-    display:block;
-    background:#ddd;
-  }
-  .photo-card .cap{
-    font-family:'Caveat', cursive;
-    font-size:1.15rem;
-    color:var(--ink-soft);
-    padding-top:0.5rem;
-    text-align:center;
-  }
-
-  .bio{
-    flex:1;
-    min-width:220px;
-    padding-top:0.3rem;
-  }
-  .bio h3{
-    font-size:1.5rem;
-    font-weight:600;
-    margin:0 0 0.3rem;
-  }
-  .bio .festivals{
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.75rem;
-    color:var(--green);
-    letter-spacing:0.02em;
-    line-height:1.8;
-  }
-  .bio .festivals span{
-    display:inline-block;
-    background:rgba(51,85,63,0.08);
-    padding:0.15rem 0.5rem;
-    border-radius:2px;
-    margin:0 0.3rem 0.3rem 0;
-  }
-
-  /* ---------- LIGHTBOX ---------- */
-  .lightbox{
-    position:fixed; inset:0;
-    background:rgba(20,17,12,0.92);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:50;
-    padding:2rem;
-  }
+  .photo-card img{width:100%;display:block;background:#ddd;}
+  .photo-card .cap{font-family:'Caveat', cursive;font-size:1.15rem;color:var(--ink-soft);padding-top:0.5rem;text-align:center;}
+  .bio{flex:1;min-width:220px;padding-top:0.3rem;}
+  .bio h3{font-size:1.5rem;font-weight:600;margin:0 0 0.3rem;}
+  .bio .festivals{font-family:'JetBrains Mono', monospace;font-size:0.75rem;color:var(--green);letter-spacing:0.02em;line-height:1.8;}
+  .bio .festivals span{display:inline-block;background:rgba(51,85,63,0.08);padding:0.15rem 0.5rem;border-radius:2px;margin:0 0.3rem 0.3rem 0;}
+  .lightbox{position:fixed; inset:0;background:rgba(20,17,12,0.92);display:none;align-items:center;justify-content:center;z-index:50;padding:2rem;}
   .lightbox.show{display:flex;}
-  .lightbox img{
-    max-width:92vw;
-    max-height:88vh;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
-  }
-  .lightbox-close{
-    position:absolute;
-    top:1.5rem; right:1.8rem;
-    font-family:'JetBrains Mono', monospace;
-    color:var(--paper);
-    font-size:1.6rem;
-    cursor:pointer;
-    background:none;
-    border:none;
-  }
-
-  footer{
-    text-align:center;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.72rem;
-    color:var(--ink-soft);
-    padding:2.5rem 1.5rem 3.5rem;
-  }
-
-  /* ---------- A-Z NAV ---------- */
-  .alpha-nav{
-    position:sticky;
-    top:0;
-    z-index:10;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:0.15rem;
-    padding:0.7rem 1rem;
-    font-family:'JetBrains Mono', monospace;
-    font-size:0.85rem;
-    font-weight:500;
-  }
-  .alpha-nav a, .alpha-nav span{
-    width:1.7em;
-    height:1.7em;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:2px;
-    text-decoration:none;
-  }
-  .alpha-nav a{
-    color:var(--ink);
-    background:var(--card);
-    box-shadow:0 1px 3px var(--tag-shadow);
-    transition:all 0.15s ease;
-  }
-  .alpha-nav a:hover{
-    background:var(--red);
-    color:var(--paper);
-    transform:translateY(-1px);
-  }
-  .alpha-nav span{
-    color:var(--line);
-  }
-
+  .lightbox img{max-width:92vw;max-height:88vh;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+  .lightbox-close{position:absolute;top:1.5rem; right:1.8rem;font-family:'JetBrains Mono', monospace;color:var(--paper);font-size:1.6rem;cursor:pointer;background:none;border:none;}
+  footer{text-align:center;font-family:'JetBrains Mono', monospace;font-size:0.72rem;color:var(--ink-soft);padding:2.5rem 1.5rem 3.5rem;}
+  .alpha-nav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:center;gap:0.15rem;padding:0.7rem 1rem;font-family:'JetBrains Mono', monospace;font-size:0.85rem;font-weight:500;}
+  .alpha-nav a, .alpha-nav span{width:1.7em;height:1.7em;display:flex;align-items:center;justify-content:center;border-radius:2px;text-decoration:none;}
+  .alpha-nav a{color:var(--ink);background:var(--card);box-shadow:0 1px 3px var(--tag-shadow);transition:all 0.15s ease;}
+  .alpha-nav a:hover{background:var(--red);color:var(--paper);transform:translateY(-1px);}
+  .alpha-nav span{color:var(--line);}
   .search-wrap{max-width:920px;margin:1.5rem auto 0;padding:0 1.5rem;}
-  .search-box{
-    width:100%;font-family:'JetBrains Mono', monospace;font-size:0.95rem;
-    padding:0.7rem 1rem;border:1px solid var(--line);border-radius:4px;
-    background:var(--card);color:var(--ink);box-sizing:border-box;
-  }
+  .search-box{width:100%;font-family:'JetBrains Mono', monospace;font-size:0.95rem;padding:0.7rem 1rem;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink);box-sizing:border-box;}
   .search-box:focus{outline:none;border-color:var(--red);}
   .search-box::placeholder{color:var(--ink-soft);}
   .no-results{display:none;padding:2rem 0.2rem;color:var(--ink-soft);font-style:italic;}
   .no-results.show{display:block;}
-
-  .gate{
-    position:fixed; inset:0; z-index:100;
-    background: radial-gradient(ellipse at top left, #f4efe0 0%, var(--paper) 55%);
-    display:flex; align-items:center; justify-content:center;
-    padding:1.5rem;
-  }
-  .gate-box{
-    background:var(--card); padding:2.5rem 2rem; max-width:320px; width:100%;
-    text-align:center; box-shadow:0 12px 30px rgba(33,29,23,0.18); border-radius:4px;
-  }
-  .gate-box .lock{font-size:2rem; margin-bottom:0.8rem;}
-  .gate-box h2{font-size:1.3rem; margin:0 0 1.2rem; font-weight:600;}
-  .gate-input{
-    width:100%; font-family:'JetBrains Mono', monospace; font-size:1rem;
-    padding:0.65rem 0.8rem; border:1px solid var(--line); border-radius:4px;
-    box-sizing:border-box; text-align:center; letter-spacing:0.1em;
-  }
-  .gate-input:focus{outline:none; border-color:var(--red);}
-  .gate-btn{
-    margin-top:0.8rem; width:100%; font-family:'JetBrains Mono', monospace;
-    font-weight:700; font-size:0.9rem; padding:0.65rem; border:none;
-    border-radius:4px; background:var(--red); color:var(--paper); cursor:pointer;
-  }
-  .gate-btn:hover{opacity:0.9;}
-  .gate-error{color:var(--red); font-size:0.8rem; margin-top:0.6rem; display:none;}
-  .gate-error.show{display:block;}
-  #site-content{display:none;}
-
-  @media (max-width:560px){
-    .hero{padding:3.5rem 1.2rem 2rem;}
-    .index-wrap{padding:2rem 1.2rem 4rem;}
-    .entry-meta{display:none;}
-    .photo-card{width:44%;}
-  }
+  @media (max-width:560px){.hero{padding:3.5rem 1.2rem 2rem;} .index-wrap{padding:2rem 1.2rem 4rem;} .entry-meta{display:none;} .photo-card{width:44%;}}
 </style>
 </head>
 <body>
 
-<div class="gate" id="gate">
-  <div class="gate-box">
-    <div class="lock">🔒</div>
-    <h2>Deze pagina is besloten</h2>
-    <input type="text" class="gate-input" id="gate-input" placeholder="Toegangscode" autocomplete="off">
-    <button class="gate-btn" onclick="checkGate()">Openen</button>
-    <div class="gate-error" id="gate-error">Onjuiste code, probeer opnieuw.</div>
-  </div>
-</div>
-
-<div id="site-content">
 <section class="hero">
   <span class="eyebrow">Persoonlijk archief · signeersessies</span>
   <h1>Get<em>e</em>kend</h1>
-  <p>Portretten, opdrachten en covers verzameld op stripfestivals — van Angoulême tot Charleville, van Turnhout tot Lys-lez-Lannoy.</p>
+  <p>Portretten, opdrachten en covers verzameld op stripfestivals.</p>
   <span class="scrawl">klik op een naam om de foto's te bekijken →</span>
 </section>
 
@@ -382,306 +82,3485 @@
 </div>
 
 <div class="index-wrap">
-  <div class="index-hint">alfabetisch · 11 tekenaars · klik om te openen</div>
+  <div class="index-hint">alfabetisch · 143 tekenaars · klik om te openen</div>
 
   <div class="letter-group" id="letter-A">
     <div class="letter">A</div>
 
-    <div class="entry" data-key="abel">
+    <div class="entry" data-key="abel-jessica-x">
       <button class="entry-tag" onclick="toggleEntry(this)">
         <span class="name-plate">Abel, Jessica</span>
-        <span class="entry-meta">Turnhout '09</span>
+        <span class="entry-meta"></span>
         <span class="chev">+</span>
       </button>
       <div class="panel">
         <div class="panel-inner">
           <div class="bio">
-            <h3>Jessica Abel</h3>
-            <div class="festivals"><span>Turnhout 2009</span></div>
+            <h3> Abel, Jessica</h3>
+            <div class="festivals"></div>
           </div>
-          <div class="photo-card" onclick="openLightbox('images/abel-jessica-portret.jpg')">
-            <img src="images/abel-jessica-portret.jpg" alt="Jessica Abel, portret">
+          <div class="photo-card" onclick="openLightbox('images/abel-jessica-x-portret.jpg')">
+            <img src="images/abel-jessica-x-portret.jpg" alt="Abel, Jessica, portret" loading="lazy">
             <div class="cap">portret</div>
           </div>
-          <div class="photo-card" onclick="openLightbox('images/abel-jessica-opdracht.jpg')">
-            <img src="images/abel-jessica-opdracht.jpg" alt="Opdracht van Jessica Abel in Mirror, Window">
-            <div class="cap">opdracht — Mirror, Window</div>
+          <div class="photo-card" onclick="openLightbox('images/abel-jessica-x-cover-1.jpg')">
+            <img src="images/abel-jessica-x-cover-1.jpg" alt="Cover, Abel, Jessica" loading="lazy">
+            <div class="cap">cover — Mirrow Window tek (Turnhout '09)</div>
           </div>
-          <div class="photo-card" onclick="openLightbox('images/abel-jessica-cover.jpg')">
-            <img src="images/abel-jessica-cover.jpg" alt="Cover van Mirror, Window">
-            <div class="cap">cover — Mirror, Window</div>
+          <div class="photo-card" onclick="openLightbox('images/abel-jessica-x-cover-2.jpg')">
+            <img src="images/abel-jessica-x-cover-2.jpg" alt="Cover, Abel, Jessica" loading="lazy">
+            <div class="cap">cover — Mirrow Window</div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="entry" data-key="abirached">
+    <div class="entry" data-key="abirached-zeina-x">
       <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Abirached, Zeina</span>
-        <span class="entry-meta">Angoulême '19</span>
+        <span class="name-plate">Abirached, Zeina </span>
+        <span class="entry-meta"></span>
         <span class="chev">+</span>
       </button>
       <div class="panel">
         <div class="panel-inner">
           <div class="bio">
-            <h3>Zeina Abirached</h3>
-            <div class="festivals"><span>Angoulême 2019</span></div>
+            <h3> Abirached, Zeina </h3>
+            <div class="festivals"></div>
           </div>
-          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-portret.jpg')">
-            <img src="images/abirached-zeina-portret.jpg" alt="Zeina Abirached, portret">
+          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-x-portret-2.jpg')">
+            <img src="images/abirached-zeina-x-portret-2.jpg" alt="Abirached, Zeina , portret" loading="lazy">
             <div class="cap">portret</div>
           </div>
-          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-opdracht.jpg')">
-            <img src="images/abirached-zeina-opdracht.jpg" alt="Opdracht van Zeina Abirached, Zwaluwenspel">
-            <div class="cap">opdracht — Zwaluwenspel</div>
+          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-x-cover.jpg')">
+            <img src="images/abirached-zeina-x-cover.jpg" alt="Cover, Abirached, Zeina " loading="lazy">
+            <div class="cap">cover — Zwaluwenspel. (Angouleme '19)jpg</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-x-cover-1.jpg')">
+            <img src="images/abirached-zeina-x-cover-1.jpg" alt="Cover, Abirached, Zeina " loading="lazy">
+            <div class="cap">cover — Zwaluwenspel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="acciarino-gianluca-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Acciarino, Gianluca </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Acciarino, Gianluca </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/acciarino-gianluca-x-cover.jpg')">
+            <img src="images/acciarino-gianluca-x-cover.jpg" alt="Cover, Acciarino, Gianluca " loading="lazy">
+            <div class="cap">cover — Succebus (Bergambacht '16</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/acciarino-gianluca-x-cover-1.jpg')">
+            <img src="images/acciarino-gianluca-x-cover-1.jpg" alt="Cover, Acciarino, Gianluca " loading="lazy">
+            <div class="cap">cover — Succebus 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="achde-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Achde </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Achde </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-portret-9.jpg')">
+            <img src="images/achde-x-portret-9.jpg" alt="Achde , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover.jpg')">
+            <img src="images/achde-x-cover.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke - Strop voor Daltons (Turnhout '13)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-1.jpg')">
+            <img src="images/achde-x-cover-1.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke - Strop voor Daltons</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-2.jpg')">
+            <img src="images/achde-x-cover-2.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke-Strop voor Daltons(blad, Breda '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-3.jpg')">
+            <img src="images/achde-x-cover-3.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke tegen Pinkerton (Lys Lez Lannoy '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-4.jpg')">
+            <img src="images/achde-x-cover-4.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke tegen Pinkerton tek (Lys Lez Lannoy '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-5.jpg')">
+            <img src="images/achde-x-cover-5.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke-de man van Washington (St Gilles '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-6.jpg')">
+            <img src="images/achde-x-cover-6.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke-de man van Washington tek (St Gilles '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-7.jpg')">
+            <img src="images/achde-x-cover-7.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke-Jolly Jumper op vrijersvoeten (St Giiles '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/achde-x-cover-8.jpg')">
+            <img src="images/achde-x-cover-8.jpg" alt="Cover, Achde " loading="lazy">
+            <div class="cap">cover — Lucky Luke-Jolly Jumper op vrijersvoeten tek(St Giiles '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adam-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adam </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adam </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover.jpg')">
+            <img src="images/adam-x-cover.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over 1 ( St Gilles '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-1.jpg')">
+            <img src="images/adam-x-cover-1.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over 1 tek ( St Gilles '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-2.jpg')">
+            <img src="images/adam-x-cover-2.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over 16 (Valencienne '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-3.jpg')">
+            <img src="images/adam-x-cover-3.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game Over 20 (prive '21)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-4.jpg')">
+            <img src="images/adam-x-cover-4.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over- 8 Cold case tek (facts '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-5.jpg')">
+            <img src="images/adam-x-cover-5.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over- 8 Cold case</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-6.jpg')">
+            <img src="images/adam-x-cover-6.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over- 4 Oups (Ukkel '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-7.jpg')">
+            <img src="images/adam-x-cover-7.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over- 4 Oups tek (Ukkel '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-8.jpg')">
+            <img src="images/adam-x-cover-8.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over-3 Wat schattig (St Gilles '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adam-x-cover-9.jpg')">
+            <img src="images/adam-x-cover-9.jpg" alt="Cover, Adam " loading="lazy">
+            <div class="cap">cover — Game over-3 Wat schattig tek (St Gilles '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adamov-philippe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adamov , Philippe </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adamov , Philippe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adamov-philippe-x-portret-2.jpg')">
+            <img src="images/adamov-philippe-x-portret-2.jpg" alt="Adamov , Philippe , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adamov-philippe-x-cover.jpg')">
+            <img src="images/adamov-philippe-x-cover.jpg" alt="Cover, Adamov , Philippe " loading="lazy">
+            <div class="cap">cover — Dakota (Setre '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adamov-philippe-x-cover-1.jpg')">
+            <img src="images/adamov-philippe-x-cover-1.jpg" alt="Cover, Adamov , Philippe " loading="lazy">
+            <div class="cap">cover — Dakota 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adlard-charlie-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adlard, Charlie </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adlard, Charlie </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adlard-charlie-x-cover.jpg')">
+            <img src="images/adlard-charlie-x-cover.jpg" alt="Cover, Adlard, Charlie " loading="lazy">
+            <div class="cap">cover — Walking Death (blad, Gent '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adlard-charlie-facts-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adlard, Charlie (Facts '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adlard, Charlie (Facts '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adlard-charlie-facts-12-x-portret.jpg')">
+            <img src="images/adlard-charlie-facts-12-x-portret.jpg" alt="Adlard, Charlie (Facts '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adriaenssens-yvan-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adriaenssens, Yvan</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adriaenssens, Yvan</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adriaenssens-yvan-x-cover.jpg')">
+            <img src="images/adriaenssens-yvan-x-cover.jpg" alt="Cover, Adriaenssens, Yvan" loading="lazy">
+            <div class="cap">cover — Oudenaarde 1708 tek (St Lievens '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adriaenssens-yvan-e-a-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adriaenssens, Yvan  e.a.</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adriaenssens, Yvan  e.a.</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adriaenssens-yvan-e-a-x-cover.jpg')">
+            <img src="images/adriaenssens-yvan-e-a-x-cover.jpg" alt="Cover, Adriaenssens, Yvan  e.a." loading="lazy">
+            <div class="cap">cover — Oudenaarde 1708 (St Lievens '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adriaenssens-yvan-petrus-blad-zwolle-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adriaenssens, Yvan Petrus (blad, Zwolle '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adriaenssens, Yvan Petrus (blad, Zwolle '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adriaenssens-yvan-petrus-blad-zwolle-12-x-portret.jpg')">
+            <img src="images/adriaenssens-yvan-petrus-blad-zwolle-12-x-portret.jpg" alt="Adriaenssens, Yvan Petrus (blad, Zwolle '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="adriaenssens-yvo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Adriaenssens, Yvo</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Adriaenssens, Yvo</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/adriaenssens-yvo-x-portret.jpg')">
+            <img src="images/adriaenssens-yvo-x-portret.jpg" alt="Adriaenssens, Yvo, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="agosto-stephan-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Agosto, Stephan </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Agosto, Stephan </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/agosto-stephan-x-cover.jpg')">
+            <img src="images/agosto-stephan-x-cover.jpg" alt="Cover, Agosto, Stephan " loading="lazy">
+            <div class="cap">cover — Helden van de luchtmacht 4</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/agosto-stephan-x-cover-1.jpg')">
+            <img src="images/agosto-stephan-x-cover-1.jpg" alt="Cover, Agosto, Stephan " loading="lazy">
+            <div class="cap">cover — Helden vd luchtmacht 2 (BA '24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/agosto-stephan-x-cover-2.jpg')">
+            <img src="images/agosto-stephan-x-cover-2.jpg" alt="Cover, Agosto, Stephan " loading="lazy">
+            <div class="cap">cover — Helden vd luchtmacht 2 (blad, BA '24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/agosto-stephan-x-cover-3.jpg')">
+            <img src="images/agosto-stephan-x-cover-3.jpg" alt="Cover, Agosto, Stephan " loading="lazy">
+            <div class="cap">cover — Helden vd luchtmacht 2</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/agosto-stephan-x-cover-4.jpg')">
+            <img src="images/agosto-stephan-x-cover-4.jpg" alt="Cover, Agosto, Stephan " loading="lazy">
+            <div class="cap">cover — Helden van de luchtmacht 4(prive'19)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="agosto-stephan-24-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Agosto, Stephan '24</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Agosto, Stephan '24</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/agosto-stephan-24-x-portret.jpg')">
+            <img src="images/agosto-stephan-24-x-portret.jpg" alt="Agosto, Stephan '24, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aidans-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aidans</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aidans</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aidans-x-portret-4.jpg')">
+            <img src="images/aidans-x-portret-4.jpg" alt="Aidans, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aidans-x-cover.jpg')">
+            <img src="images/aidans-x-cover.jpg" alt="Cover, Aidans" loading="lazy">
+            <div class="cap">cover — Toenga - De grote strijd van Toenga tek Valkenswaard '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aidans-x-cover-1.jpg')">
+            <img src="images/aidans-x-cover-1.jpg" alt="Cover, Aidans" loading="lazy">
+            <div class="cap">cover — Toenga - De grote strijd van Toenga</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aidans-x-cover-2.jpg')">
+            <img src="images/aidans-x-cover-2.jpg" alt="Cover, Aidans" loading="lazy">
+            <div class="cap">cover — Kleester- ontvoering in Tokio  (Middelkerke '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aidans-x-cover-3.jpg')">
+            <img src="images/aidans-x-cover-3.jpg" alt="Cover, Aidans" loading="lazy">
+            <div class="cap">cover — Kleester- ontvoering in Tokio  tek (Middelkerke '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aja-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aja </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aja </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-x-cover.jpg')">
+            <img src="images/aja-x-cover.jpg" alt="Cover, Aja " loading="lazy">
+            <div class="cap">cover — Zij 1 ('12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-x-cover-1.jpg')">
+            <img src="images/aja-x-cover-1.jpg" alt="Cover, Aja " loading="lazy">
+            <div class="cap">cover — Zij 2 (Facts '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-x-cover-2.jpg')">
+            <img src="images/aja-x-cover-2.jpg" alt="Cover, Aja " loading="lazy">
+            <div class="cap">cover — Zij 2</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-x-cover-3.jpg')">
+            <img src="images/aja-x-cover-3.jpg" alt="Cover, Aja " loading="lazy">
+            <div class="cap">cover — Zij 3 (Facts '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-x-cover-4.jpg')">
+            <img src="images/aja-x-cover-4.jpg" alt="Cover, Aja " loading="lazy">
+            <div class="cap">cover — Zij 3</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-x-cover-5.jpg')">
+            <img src="images/aja-x-cover-5.jpg" alt="Cover, Aja " loading="lazy">
+            <div class="cap">cover — Zij - 1. de scherf van Amenaras</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aja-alberto-jimenez-alburquerque-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aja (Alberto Jimenez Alburquerque '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aja (Alberto Jimenez Alburquerque '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aja-alberto-jimenez-alburquerque-12-x-portret.jpg')">
+            <img src="images/aja-alberto-jimenez-alburquerque-12-x-portret.jpg" alt="Aja (Alberto Jimenez Alburquerque '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="akkerman-boy-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Akkerman, Boy </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Akkerman, Boy </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/akkerman-boy-x-cover.jpg')">
+            <img src="images/akkerman-boy-x-cover.jpg" alt="Cover, Akkerman, Boy " loading="lazy">
+            <div class="cap">cover — Captain Roffa (blad, Zwolle '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="akkerman-boy-zwolle-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Akkerman, Boy ( Zwolle '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Akkerman, Boy ( Zwolle '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/akkerman-boy-zwolle-12-x-portret.jpg')">
+            <img src="images/akkerman-boy-zwolle-12-x-portret.jpg" alt="Akkerman, Boy ( Zwolle '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alarcon-juan-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alarcon, Juan </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alarcon, Juan </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alarcon-juan-x-portret-2.jpg')">
+            <img src="images/alarcon-juan-x-portret-2.jpg" alt="Alarcon, Juan , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alarcon-juan-x-cover.jpg')">
+            <img src="images/alarcon-juan-x-cover.jpg" alt="Cover, Alarcon, Juan " loading="lazy">
+            <div class="cap">cover — Lemuria, Citadel -2</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alarcon-juan-x-cover-1.jpg')">
+            <img src="images/alarcon-juan-x-cover-1.jpg" alt="Cover, Alarcon, Juan " loading="lazy">
+            <div class="cap">cover — (Breda '18)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alary-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alary</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alary</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-x-cover.jpg')">
+            <img src="images/alary-x-cover.jpg" alt="Cover, Alary" loading="lazy">
+            <div class="cap">cover — Sinbad 1 ( 050909 Lotus Noir)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-x-cover-1.jpg')">
+            <img src="images/alary-x-cover-1.jpg" alt="Cover, Alary" loading="lazy">
+            <div class="cap">cover — Sinbad 1 tek ( 050909 Lotus Noir)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alary-p-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alary, P</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alary, P</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-p-x-cover.jpg')">
+            <img src="images/alary-p-x-cover.jpg" alt="Cover, Alary, P" loading="lazy">
+            <div class="cap">cover — Sinbad 2 (Valencienne '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-p-x-cover-1.jpg')">
+            <img src="images/alary-p-x-cover-1.jpg" alt="Cover, Alary, P" loading="lazy">
+            <div class="cap">cover — Sinbad 2 -De klauwen van de djinn</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-p-x-cover-2.jpg')">
+            <img src="images/alary-p-x-cover-2.jpg" alt="Cover, Alary, P" loading="lazy">
+            <div class="cap">cover — Sinbad 3 (Valencienne '19)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alary-pierre-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alary, Pierre </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alary, Pierre </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-pierre-x-portret-3.jpg')">
+            <img src="images/alary-pierre-x-portret-3.jpg" alt="Alary, Pierre , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-pierre-x-cover.jpg')">
+            <img src="images/alary-pierre-x-cover.jpg" alt="Cover, Alary, Pierre " loading="lazy">
+            <div class="cap">cover — Sketchtravel tek (Cook and Book '11)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-pierre-x-cover-1.jpg')">
+            <img src="images/alary-pierre-x-cover-1.jpg" alt="Cover, Alary, Pierre " loading="lazy">
+            <div class="cap">cover — Sinbad-3 Duister van de harem (St Gilles '11)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alary-pierre-x-cover-2.jpg')">
+            <img src="images/alary-pierre-x-cover-2.jpg" alt="Cover, Alary, Pierre " loading="lazy">
+            <div class="cap">cover — Sinbad-3 Duister van de harem tek ( St Gilles '11)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="albert-eric-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Albert, Eric </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Albert, Eric </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albert-eric-x-portret-2.jpg')">
+            <img src="images/albert-eric-x-portret-2.jpg" alt="Albert, Eric , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albert-eric-x-cover.jpg')">
+            <img src="images/albert-eric-x-cover.jpg" alt="Cover, Albert, Eric " loading="lazy">
+            <div class="cap">cover — Kitty Beaufort (Breda '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albert-eric-x-cover-1.jpg')">
+            <img src="images/albert-eric-x-cover-1.jpg" alt="Cover, Albert, Eric " loading="lazy">
+            <div class="cap">cover — Kitty Beaufort</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alberti-mario-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alberti, Mario </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alberti, Mario </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alberti-mario-x-portret-2.jpg')">
+            <img src="images/alberti-mario-x-portret-2.jpg" alt="Alberti, Mario , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alberti-mario-x-cover.jpg')">
+            <img src="images/alberti-mario-x-cover.jpg" alt="Cover, Alberti, Mario " loading="lazy">
+            <div class="cap">cover — Cutting edge (Valencienne '21)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alberti-mario-x-cover-1.jpg')">
+            <img src="images/alberti-mario-x-cover-1.jpg" alt="Cover, Alberti, Mario " loading="lazy">
+            <div class="cap">cover — Cutting edge 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="albertini-giorgio-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Albertini, Giorgio </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Albertini, Giorgio </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albertini-giorgio-x-cover.jpg')">
+            <img src="images/albertini-giorgio-x-cover.jpg" alt="Cover, Albertini, Giorgio " loading="lazy">
+            <div class="cap">cover — Alex - Veni Vidi Vice</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="albertini-giorgio-angouleme-19-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Albertini, Giorgio (Angouleme '19)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Albertini, Giorgio (Angouleme '19)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albertini-giorgio-angouleme-19-x-portret.jpg')">
+            <img src="images/albertini-giorgio-angouleme-19-x-portret.jpg" alt="Albertini, Giorgio (Angouleme '19), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="albertini-giorgo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Albertini, Giorgo </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Albertini, Giorgo </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albertini-giorgo-x-cover.jpg')">
+            <img src="images/albertini-giorgo-x-cover.jpg" alt="Cover, Albertini, Giorgo " loading="lazy">
+            <div class="cap">cover — Alex 39 (Buc '23)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albertini-giorgo-x-cover-1.jpg')">
+            <img src="images/albertini-giorgo-x-cover-1.jpg" alt="Cover, Albertini, Giorgo " loading="lazy">
+            <div class="cap">cover — Alex 39</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="albertini-giorgo-23-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Albertini, Giorgo 23</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Albertini, Giorgo 23</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/albertini-giorgo-23-x-portret.jpg')">
+            <img src="images/albertini-giorgo-23-x-portret.jpg" alt="Albertini, Giorgo 23, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aleksic-vladimir-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aleksic, Vladimir </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aleksic, Vladimir </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aleksic-vladimir-x-cover.jpg')">
+            <img src="images/aleksic-vladimir-x-cover.jpg" alt="Cover, Aleksic, Vladimir " loading="lazy">
+            <div class="cap">cover — Antichrist 1 (Luik '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aleksic-vladimir-x-cover-1.jpg')">
+            <img src="images/aleksic-vladimir-x-cover-1.jpg" alt="Cover, Aleksic, Vladimir " loading="lazy">
+            <div class="cap">cover — Antichrist 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aleksic-vladimir-x-cover-2.jpg')">
+            <img src="images/aleksic-vladimir-x-cover-2.jpg" alt="Cover, Aleksic, Vladimir " loading="lazy">
+            <div class="cap">cover — Antichrist 2 (Luik '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aleksic-vladimir-x-cover-3.jpg')">
+            <img src="images/aleksic-vladimir-x-cover-3.jpg" alt="Cover, Aleksic, Vladimir " loading="lazy">
+            <div class="cap">cover — Antichrist 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aleksic-vladimir-2-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aleksic, Vladimir 2 </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aleksic, Vladimir 2 </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aleksic-vladimir-2-x-portret.jpg')">
+            <img src="images/aleksic-vladimir-2-x-portret.jpg" alt="Aleksic, Vladimir 2 , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alessandra-joel-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alessandra, Joel </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alessandra, Joel </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alessandra-joel-x-cover.jpg')">
+            <img src="images/alessandra-joel-x-cover.jpg" alt="Cover, Alessandra, Joel " loading="lazy">
+            <div class="cap">cover — Beatles (Stripfeest '13)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alessandra-joel-x-cover-1.jpg')">
+            <img src="images/alessandra-joel-x-cover-1.jpg" alt="Cover, Alessandra, Joel " loading="lazy">
+            <div class="cap">cover — Le periple de baldassare (Brusel '11)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alessandra-joel-x-cover-2.jpg')">
+            <img src="images/alessandra-joel-x-cover-2.jpg" alt="Cover, Alessandra, Joel " loading="lazy">
+            <div class="cap">cover — Le periple de baldassare tek (Brusel '11)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alessandra-joel-brusel-11-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alessandra, Joel (Brusel '11)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alessandra, Joel (Brusel '11)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alessandra-joel-brusel-11-x-portret.jpg')">
+            <img src="images/alessandra-joel-brusel-11-x-portret.jpg" alt="Alessandra, Joel (Brusel '11), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alex-mudhoen-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alex (Mudhoen)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alex (Mudhoen)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alex-mudhoen-x-cover.jpg')">
+            <img src="images/alex-mudhoen-x-cover.jpg" alt="Cover, Alex (Mudhoen)" loading="lazy">
+            <div class="cap">cover — Superhero stories tek (Zwolle '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alex-mudhoen-x-cover-1.jpg')">
+            <img src="images/alex-mudhoen-x-cover-1.jpg" alt="Cover, Alex (Mudhoen)" loading="lazy">
+            <div class="cap">cover — Superhero stories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alex-mudhoen-blad-zwolle-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alex (Mudhoen) (blad, Zwolle '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alex (Mudhoen) (blad, Zwolle '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alex-mudhoen-blad-zwolle-12-x-portret.jpg')">
+            <img src="images/alex-mudhoen-blad-zwolle-12-x-portret.jpg" alt="Alex (Mudhoen) (blad, Zwolle '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alexe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alexe </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alexe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexe-x-portret-2.jpg')">
+            <img src="images/alexe-x-portret-2.jpg" alt="Alexe , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexe-x-cover.jpg')">
+            <img src="images/alexe-x-cover.jpg" alt="Cover, Alexe " loading="lazy">
+            <div class="cap">cover — Lancelot (prive ''15)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexe-x-cover-1.jpg')">
+            <img src="images/alexe-x-cover-1.jpg" alt="Cover, Alexe " loading="lazy">
+            <div class="cap">cover — Lancelot 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alexine-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alexine </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alexine </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexine-x-cover.jpg')">
+            <img src="images/alexine-x-cover.jpg" alt="Cover, Alexine " loading="lazy">
+            <div class="cap">cover — Bianca  tek(Lys Les Lannoy '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alexine-lys-les-lannoy-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alexine (Lys Les Lannoy '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alexine (Lys Les Lannoy '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexine-lys-les-lannoy-12-x-portret.jpg')">
+            <img src="images/alexine-lys-les-lannoy-12-x-portret.jpg" alt="Alexine (Lys Les Lannoy '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alexis-alexander-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alexis, Alexander </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alexis, Alexander </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexis-alexander-x-cover.jpg')">
+            <img src="images/alexis-alexander-x-cover.jpg" alt="Cover, Alexis, Alexander " loading="lazy">
+            <div class="cap">cover — Grand  Armee1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alexis-alexander-ps-aleksic-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alexis, Alexander (ps Aleksic) </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alexis, Alexander (ps Aleksic) </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alexis-alexander-ps-aleksic-x-cover.jpg')">
+            <img src="images/alexis-alexander-ps-aleksic-x-cover.jpg" alt="Cover, Alexis, Alexander (ps Aleksic) " loading="lazy">
+            <div class="cap">cover — Grand  Armee (prive '16)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alfred-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alfred </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alfred </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alfred-x-cover.jpg')">
+            <img src="images/alfred-x-cover.jpg" alt="Cover, Alfred " loading="lazy">
+            <div class="cap">cover — de 1e keer (Angouleme '15)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alfred-x-cover-1.jpg')">
+            <img src="images/alfred-x-cover-1.jpg" alt="Cover, Alfred " loading="lazy">
+            <div class="cap">cover — Bob Dylan (Foire du Livre '13)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alfred-x-cover-2.jpg')">
+            <img src="images/alfred-x-cover-2.jpg" alt="Cover, Alfred " loading="lazy">
+            <div class="cap">cover — de 1e keer (Angouleme'15)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alfred-x-cover-3.jpg')">
+            <img src="images/alfred-x-cover-3.jpg" alt="Cover, Alfred " loading="lazy">
+            <div class="cap">cover — Waarom Pierre dood moest (Amiens '11)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alfred-x-cover-4.jpg')">
+            <img src="images/alfred-x-cover-4.jpg" alt="Cover, Alfred " loading="lazy">
+            <div class="cap">cover — Waarom Pierre dood moest tek (Amiens '11)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alfred-amiens-11-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alfred (Amiens '11)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alfred (Amiens '11)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alfred-amiens-11-x-portret.jpg')">
+            <img src="images/alfred-amiens-11-x-portret.jpg" alt="Alfred (Amiens '11), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="ali-roberto-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Ali, Roberto </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Ali, Roberto </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ali-roberto-x-cover.jpg')">
+            <img src="images/ali-roberto-x-cover.jpg" alt="Cover, Ali, Roberto " loading="lazy">
+            <div class="cap">cover — 7 wonderen (prive '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ali-roberto-x-cover-1.jpg')">
+            <img src="images/ali-roberto-x-cover-1.jpg" alt="Cover, Ali, Roberto " loading="lazy">
+            <div class="cap">cover — 7 wonderen</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ali-roberto-x-cover-2.jpg')">
+            <img src="images/ali-roberto-x-cover-2.jpg" alt="Cover, Ali, Roberto " loading="lazy">
+            <div class="cap">cover — Zeven dwergen (privé  22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ali-roberto-x-cover-3.jpg')">
+            <img src="images/ali-roberto-x-cover-3.jpg" alt="Cover, Ali, Roberto " loading="lazy">
+            <div class="cap">cover — Zeven dwergen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alice-alex-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alice, Alex  </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alice, Alex  </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alice-alex-x-cover.jpg')">
+            <img src="images/alice-alex-x-cover.jpg" alt="Cover, Alice, Alex  " loading="lazy">
+            <div class="cap">cover — Kasteel van de Sterren1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alice-alex-x-cover-1.jpg')">
+            <img src="images/alice-alex-x-cover-1.jpg" alt="Cover, Alice, Alex  " loading="lazy">
+            <div class="cap">cover — Siegfried (Erlangen '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alice-alex-x-cover-2.jpg')">
+            <img src="images/alice-alex-x-cover-2.jpg" alt="Cover, Alice, Alex  " loading="lazy">
+            <div class="cap">cover — Siegfried(Erlangen '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alice-alex-angouleme-19-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alice, Alex (Angouleme '19)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alice, Alex (Angouleme '19)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alice-alex-angouleme-19-x-portret.jpg')">
+            <img src="images/alice-alex-angouleme-19-x-portret.jpg" alt="Alice, Alex (Angouleme '19), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alice-alex-erlangen-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alice, Alex (Erlangen '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alice, Alex (Erlangen '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alice-alex-erlangen-12-x-portret.jpg')">
+            <img src="images/alice-alex-erlangen-12-x-portret.jpg" alt="Alice, Alex (Erlangen '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alizon-ludwig-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alizon, Ludwig </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alizon, Ludwig </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alizon-ludwig-x-cover.jpg')">
+            <img src="images/alizon-ludwig-x-cover.jpg" alt="Cover, Alizon, Ludwig " loading="lazy">
+            <div class="cap">cover — Travis 7 (Stripfeest '13)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alizon-ludwig-x-cover-1.jpg')">
+            <img src="images/alizon-ludwig-x-cover-1.jpg" alt="Cover, Alizon, Ludwig " loading="lazy">
+            <div class="cap">cover — Travis 7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="allais-jean-marc-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Allais, Jean Marc </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Allais, Jean Marc </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allais-jean-marc-x-cover.jpg')">
+            <img src="images/allais-jean-marc-x-cover.jpg" alt="Cover, Allais, Jean Marc " loading="lazy">
+            <div class="cap">cover — Crow Dog 6 (Facts '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allais-jean-marc-x-cover-1.jpg')">
+            <img src="images/allais-jean-marc-x-cover-1.jpg" alt="Cover, Allais, Jean Marc " loading="lazy">
+            <div class="cap">cover — Crow Dog 6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="allen-raul-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Allen, Raul </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Allen, Raul </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allen-raul-x-portret-2.jpg')">
+            <img src="images/allen-raul-x-portret-2.jpg" alt="Allen, Raul , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allen-raul-x-cover.jpg')">
+            <img src="images/allen-raul-x-cover.jpg" alt="Cover, Allen, Raul " loading="lazy">
+            <div class="cap">cover — Dune 2 (Valencienne '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allen-raul-x-cover-1.jpg')">
+            <img src="images/allen-raul-x-cover-1.jpg" alt="Cover, Allen, Raul " loading="lazy">
+            <div class="cap">cover — Dune 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="allias-jean-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Allias, Jean</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Allias, Jean</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allias-jean-x-cover.jpg')">
+            <img src="images/allias-jean-x-cover.jpg" alt="Cover, Allias, Jean" loading="lazy">
+            <div class="cap">cover — Marc</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="allias-jean-marc-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Allias, Jean Marc </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Allias, Jean Marc </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allias-jean-marc-x-cover.jpg')">
+            <img src="images/allias-jean-marc-x-cover.jpg" alt="Cover, Allias, Jean Marc " loading="lazy">
+            <div class="cap">cover — Crow Dog 6 (prive '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/allias-jean-marc-x-cover-1.jpg')">
+            <img src="images/allias-jean-marc-x-cover-1.jpg" alt="Cover, Allias, Jean Marc " loading="lazy">
+            <div class="cap">cover — Crow Dog 6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alliel-christophe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alliel, Christophe </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alliel, Christophe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alliel-christophe-x-portret-4.jpg')">
+            <img src="images/alliel-christophe-x-portret-4.jpg" alt="Alliel, Christophe , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alliel-christophe-x-cover.jpg')">
+            <img src="images/alliel-christophe-x-cover.jpg" alt="Cover, Alliel, Christophe " loading="lazy">
+            <div class="cap">cover — (Skull '14)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alliel-christophe-x-cover-1.jpg')">
+            <img src="images/alliel-christophe-x-cover-1.jpg" alt="Cover, Alliel, Christophe " loading="lazy">
+            <div class="cap">cover — Spynest 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alliel-christophe-x-cover-2.jpg')">
+            <img src="images/alliel-christophe-x-cover-2.jpg" alt="Cover, Alliel, Christophe " loading="lazy">
+            <div class="cap">cover — Spynest (prive 17)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alliel-christophe-x-cover-3.jpg')">
+            <img src="images/alliel-christophe-x-cover-3.jpg" alt="Cover, Alliel, Christophe " loading="lazy">
+            <div class="cap">cover — Spynest 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alloing-louis-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alloing, Louis </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alloing, Louis </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alloing-louis-x-portret-4.jpg')">
+            <img src="images/alloing-louis-x-portret-4.jpg" alt="Alloing, Louis , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alloing-louis-x-cover.jpg')">
+            <img src="images/alloing-louis-x-cover.jpg" alt="Cover, Alloing, Louis " loading="lazy">
+            <div class="cap">cover — Het Jacobs teken (privé '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alloing-louis-x-cover-1.jpg')">
+            <img src="images/alloing-louis-x-cover-1.jpg" alt="Cover, Alloing, Louis " loading="lazy">
+            <div class="cap">cover — Het Jacobs teken</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alloing-louis-x-cover-2.jpg')">
+            <img src="images/alloing-louis-x-cover-2.jpg" alt="Cover, Alloing, Louis " loading="lazy">
+            <div class="cap">cover — Robert Sax (privé 21)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alloing-louis-x-cover-3.jpg')">
+            <img src="images/alloing-louis-x-cover-3.jpg" alt="Cover, Alloing, Louis " loading="lazy">
+            <div class="cap">cover — Robert Sax 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="all-n-raul-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Allén, Raul </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Allén, Raul </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/all-n-raul-x-cover.jpg')">
+            <img src="images/all-n-raul-x-cover.jpg" alt="Cover, Allén, Raul " loading="lazy">
+            <div class="cap">cover — Dune (Facts '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/all-n-raul-x-cover-1.jpg')">
+            <img src="images/all-n-raul-x-cover-1.jpg" alt="Cover, Allén, Raul " loading="lazy">
+            <div class="cap">cover — Dune</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alque-jerome-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alque, Jerome </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alque, Jerome </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alque-jerome-x-cover.jpg')">
+            <img src="images/alque-jerome-x-cover.jpg" alt="Cover, Alque, Jerome " loading="lazy">
+            <div class="cap">cover — Saint Seiya 1 (St Malo '25)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alque-jerome-x-cover-1.jpg')">
+            <img src="images/alque-jerome-x-cover-1.jpg" alt="Cover, Alque, Jerome " loading="lazy">
+            <div class="cap">cover — Saint Seiya 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alquie-jerome-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alquie, Jerome</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alquie, Jerome</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alquie-jerome-x-portret.jpg')">
+            <img src="images/alquie-jerome-x-portret.jpg" alt="Alquie, Jerome, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alteau-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alteau </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alteau </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alteau-x-portret-2.jpg')">
+            <img src="images/alteau-x-portret-2.jpg" alt="Alteau , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alteau-x-cover.jpg')">
+            <img src="images/alteau-x-cover.jpg" alt="Cover, Alteau " loading="lazy">
+            <div class="cap">cover — Bollie en Billie vieren feest ( Brussel '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alteau-x-cover-1.jpg')">
+            <img src="images/alteau-x-cover-1.jpg" alt="Cover, Alteau " loading="lazy">
+            <div class="cap">cover — Bollie en Billie vieren feest</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="altuna-horacio-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Altuna, Horacio </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Altuna, Horacio </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/altuna-horacio-x-portret-2.jpg')">
+            <img src="images/altuna-horacio-x-portret-2.jpg" alt="Altuna, Horacio , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/altuna-horacio-x-cover.jpg')">
+            <img src="images/altuna-horacio-x-cover.jpg" alt="Cover, Altuna, Horacio " loading="lazy">
+            <div class="cap">cover — Opwindende gebeurtenissen (Delemont '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/altuna-horacio-x-cover-1.jpg')">
+            <img src="images/altuna-horacio-x-cover-1.jpg" alt="Cover, Altuna, Horacio " loading="lazy">
+            <div class="cap">cover — Opwindende gebeurtenissen 8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alves-chistophe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alves, Chistophe</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alves, Chistophe</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alves-chistophe-x-portret.jpg')">
+            <img src="images/alves-chistophe-x-portret.jpg" alt="Alves, Chistophe, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alves-christophe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alves, Christophe </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alves, Christophe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alves-christophe-x-cover.jpg')">
+            <img src="images/alves-christophe-x-cover.jpg" alt="Cover, Alves, Christophe " loading="lazy">
+            <div class="cap">cover — Lefranc 28jpg</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alves-christophe-x-cover-1.jpg')">
+            <img src="images/alves-christophe-x-cover-1.jpg" alt="Cover, Alves, Christophe " loading="lazy">
+            <div class="cap">cover — Lefranc</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alves-christophe-prive-16-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alves, Christophe (prive '16)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alves, Christophe (prive '16)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alves-christophe-prive-16-x-portret.jpg')">
+            <img src="images/alves-christophe-prive-16-x-portret.jpg" alt="Alves, Christophe (prive '16), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alvez-chistophe-manderen-18-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alvez, Chistophe(Manderen '18)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alvez, Chistophe(Manderen '18)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alvez-chistophe-manderen-18-x-portret.jpg')">
+            <img src="images/alvez-chistophe-manderen-18-x-portret.jpg" alt="Alvez, Chistophe(Manderen '18), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alvis-christophe-lefranc-30">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alvis, Christophe ,  Lefranc 30</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Lefranc 30 Alvis, Christophe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alvis-christophe-lefranc-30-portret.jpg')">
+            <img src="images/alvis-christophe-lefranc-30-portret.jpg" alt="Alvis, Christophe ,  Lefranc 30, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alvis-christophe-lefranc-30-lyz-22">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alvis, Christophe ,  Lefranc 30 (Lyz '22)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Lefranc 30 (Lyz '22) Alvis, Christophe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alvis-christophe-lefranc-30-lyz-22-portret.jpg')">
+            <img src="images/alvis-christophe-lefranc-30-lyz-22-portret.jpg" alt="Alvis, Christophe ,  Lefranc 30 (Lyz '22), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="alyzon-ludwig-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Alyzon, Ludwig</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Alyzon, Ludwig</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/alyzon-ludwig-x-portret.jpg')">
+            <img src="images/alyzon-ludwig-x-portret.jpg" alt="Alyzon, Ludwig, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andolfo-mirka-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andolfo, Mirka </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andolfo, Mirka </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andolfo-mirka-x-cover.jpg')">
+            <img src="images/andolfo-mirka-x-cover.jpg" alt="Cover, Andolfo, Mirka " loading="lazy">
+            <div class="cap">cover — Engel Duvel (Gent '15)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andolfo-mirka-x-cover-1.jpg')">
+            <img src="images/andolfo-mirka-x-cover-1.jpg" alt="Cover, Andolfo, Mirka " loading="lazy">
+            <div class="cap">cover — Engel Duvel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andre-lammert-erlangen-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andre Lammert ( Erlangen '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andre Lammert ( Erlangen '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andre-lammert-erlangen-12-x-portret.jpg')">
+            <img src="images/andre-lammert-erlangen-12-x-portret.jpg" alt="Andre Lammert ( Erlangen '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andre-lammert-blad-erlangen-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andre Lammert (blad, Erlangen '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andre Lammert (blad, Erlangen '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andre-lammert-blad-erlangen-12-x-portret.jpg')">
+            <img src="images/andre-lammert-blad-erlangen-12-x-portret.jpg" alt="Andre Lammert (blad, Erlangen '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andrea-jean-baptiste-14-24-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andrea, Jean Baptiste '14, '24</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andrea, Jean Baptiste '14, '24</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andrea-jean-baptiste-14-24-x-portret.jpg')">
+            <img src="images/andrea-jean-baptiste-14-24-x-portret.jpg" alt="Andrea, Jean Baptiste '14, '24, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreae-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreae </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreae </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-x-cover.jpg')">
+            <img src="images/andreae-x-cover.jpg" alt="Cover, Andreae " loading="lazy">
+            <div class="cap">cover — Azimut 5 (Marrakech '25)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-x-cover-1.jpg')">
+            <img src="images/andreae-x-cover-1.jpg" alt="Cover, Andreae " loading="lazy">
+            <div class="cap">cover — Azimut 5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreae-25-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreae ('25)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreae ('25)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-25-x-portret.jpg')">
+            <img src="images/andreae-25-x-portret.jpg" alt="Andreae ('25), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreae-jean-baptiste-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreae, Jean Baptiste  </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreae, Jean Baptiste  </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-jean-baptiste-x-cover.jpg')">
+            <img src="images/andreae-jean-baptiste-x-cover.jpg" alt="Cover, Andreae, Jean Baptiste  " loading="lazy">
+            <div class="cap">cover — Azimut 3</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-jean-baptiste-x-cover-1.jpg')">
+            <img src="images/andreae-jean-baptiste-x-cover-1.jpg" alt="Cover, Andreae, Jean Baptiste  " loading="lazy">
+            <div class="cap">cover — Azimut (Angouleme '14)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-jean-baptiste-x-cover-2.jpg')">
+            <img src="images/andreae-jean-baptiste-x-cover-2.jpg" alt="Cover, Andreae, Jean Baptiste  " loading="lazy">
+            <div class="cap">cover — Azimut (Rotterdam '15)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-jean-baptiste-x-cover-3.jpg')">
+            <img src="images/andreae-jean-baptiste-x-cover-3.jpg" alt="Cover, Andreae, Jean Baptiste  " loading="lazy">
+            <div class="cap">cover — Azimut 2</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-jean-baptiste-x-cover-4.jpg')">
+            <img src="images/andreae-jean-baptiste-x-cover-4.jpg" alt="Cover, Andreae, Jean Baptiste  " loading="lazy">
+            <div class="cap">cover — Azimut 3 (Chambery '24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreae-jean-baptiste-x-cover-5.jpg')">
+            <img src="images/andreae-jean-baptiste-x-cover-5.jpg" alt="Cover, Andreae, Jean Baptiste  " loading="lazy">
+            <div class="cap">cover — Azimut</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreas-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreas </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreas </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreas-x-cover.jpg')">
+            <img src="images/andreas-x-cover.jpg" alt="Cover, Andreas " loading="lazy">
+            <div class="cap">cover — Rork ( Filigranes '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreas-x-cover-1.jpg')">
+            <img src="images/andreas-x-cover-1.jpg" alt="Cover, Andreas " loading="lazy">
+            <div class="cap">cover — Rork tek ( Filigranes '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreas-x-cover-2.jpg')">
+            <img src="images/andreas-x-cover-2.jpg" alt="Cover, Andreas " loading="lazy">
+            <div class="cap">cover — Rork, terugkeer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreas-facts-17-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreas (Facts '17)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreas (Facts '17)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreas-facts-17-x-portret.jpg')">
+            <img src="images/andreas-facts-17-x-portret.jpg" alt="Andreas (Facts '17), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreas-filigranes-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreas, Filigranes '12</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreas, Filigranes '12</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreas-filigranes-12-x-portret.jpg')">
+            <img src="images/andreas-filigranes-12-x-portret.jpg" alt="Andreas, Filigranes '12, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andreucci-stefano-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andreucci, Stefano </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andreucci, Stefano </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreucci-stefano-x-portret-2.jpg')">
+            <img src="images/andreucci-stefano-x-portret-2.jpg" alt="Andreucci, Stefano , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreucci-stefano-x-cover.jpg')">
+            <img src="images/andreucci-stefano-x-cover.jpg" alt="Cover, Andreucci, Stefano " loading="lazy">
+            <div class="cap">cover — 7 Wonderen (Facts'16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andreucci-stefano-x-cover-1.jpg')">
+            <img src="images/andreucci-stefano-x-cover-1.jpg" alt="Cover, Andreucci, Stefano " loading="lazy">
+            <div class="cap">cover — 7 Wonderen 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andrieu-sc-buendia-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andrieu sc Buendia</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andrieu sc Buendia</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andrieu-sc-buendia-x-portret.jpg')">
+            <img src="images/andrieu-sc-buendia-x-portret.jpg" alt="Andrieu sc Buendia, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andrieu-damien-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andrieu, Damien </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andrieu, Damien </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andrieu-damien-x-cover.jpg')">
+            <img src="images/andrieu-damien-x-cover.jpg" alt="Cover, Andrieu, Damien " loading="lazy">
+            <div class="cap">cover — Adler 1 (Angouleme '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andrieu-damien-x-cover-1.jpg')">
+            <img src="images/andrieu-damien-x-cover-1.jpg" alt="Cover, Andrieu, Damien " loading="lazy">
+            <div class="cap">cover — Adler 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andrieu-damien-x-cover-2.jpg')">
+            <img src="images/andrieu-damien-x-cover-2.jpg" alt="Cover, Andrieu, Damien " loading="lazy">
+            <div class="cap">cover — Adler 2 (Charleville '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andrieu-damien-x-cover-3.jpg')">
+            <img src="images/andrieu-damien-x-cover-3.jpg" alt="Cover, Andrieu, Damien " loading="lazy">
+            <div class="cap">cover — Adler 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andriveau-simon-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andriveau, Simon </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andriveau, Simon </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andriveau-simon-x-portret-2.jpg')">
+            <img src="images/andriveau-simon-x-portret-2.jpg" alt="Andriveau, Simon , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andriveau-simon-x-cover.jpg')">
+            <img src="images/andriveau-simon-x-cover.jpg" alt="Cover, Andriveau, Simon " loading="lazy">
+            <div class="cap">cover — Gouden eeuw-1 Alphonsse  tek(Antwerpen '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andriveau-simon-x-cover-1.jpg')">
+            <img src="images/andriveau-simon-x-cover-1.jpg" alt="Cover, Andriveau, Simon " loading="lazy">
+            <div class="cap">cover — Gouden eeuw-1 Alphonsse (Antwerpen '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andronik-filip-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andronik, Filip</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andronik, Filip</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andronik-filip-x-portret.jpg')">
+            <img src="images/andronik-filip-x-portret.jpg" alt="Andronik, Filip, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="andronik-filipe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Andronik, Filipe </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Andronik, Filipe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andronik-filipe-x-cover.jpg')">
+            <img src="images/andronik-filipe-x-cover.jpg" alt="Cover, Andronik, Filipe " loading="lazy">
+            <div class="cap">cover — Man van het 1927 (privé  20)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/andronik-filipe-x-cover-1.jpg')">
+            <img src="images/andronik-filipe-x-cover-1.jpg" alt="Cover, Andronik, Filipe " loading="lazy">
+            <div class="cap">cover — Man van het 1927</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="angleraud-fabrice-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Angleraud, Fabrice</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Angleraud, Fabrice</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/angleraud-fabrice-x-portret.jpg')">
+            <img src="images/angleraud-fabrice-x-portret.jpg" alt="Angleraud, Fabrice, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="angleraud-fabrice-magika-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Angleraud,Fabrice, Magika</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Angleraud,Fabrice, Magika</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/angleraud-fabrice-magika-x-portret.jpg')">
+            <img src="images/angleraud-fabrice-magika-x-portret.jpg" alt="Angleraud,Fabrice, Magika, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="angleraud-fabrice-magika-gorinchem-14-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Angleraud,Fabrice, Magika (Gorinchem '14)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Angleraud,Fabrice, Magika (Gorinchem '14)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/angleraud-fabrice-magika-gorinchem-14-x-portret.jpg')">
+            <img src="images/angleraud-fabrice-magika-gorinchem-14-x-portret.jpg" alt="Angleraud,Fabrice, Magika (Gorinchem '14), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="anlor-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Anlor </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Anlor </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover.jpg')">
+            <img src="images/anlor-x-cover.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — Moeder Rusland (Brussel '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-1.jpg')">
+            <img src="images/anlor-x-cover-1.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — Moeder Rusland 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-2.jpg')">
+            <img src="images/anlor-x-cover-2.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — Te mooi om waar te zijn  (Brussel '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-3.jpg')">
+            <img src="images/anlor-x-cover-3.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — Te mooi om waar te zijn 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-4.jpg')">
+            <img src="images/anlor-x-cover-4.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — De onschuldige schuldigen (Amiens '14)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-5.jpg')">
+            <img src="images/anlor-x-cover-5.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — De onschuldige schuldigen 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-6.jpg')">
+            <img src="images/anlor-x-cover-6.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — De onschuldigen schuldigen 2 (Amiens '24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-x-cover-7.jpg')">
+            <img src="images/anlor-x-cover-7.jpg" alt="Cover, Anlor " loading="lazy">
+            <div class="cap">cover — De onschuldigen schuldigen 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="anlor-14-19-24-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Anlor '14, '19'24</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Anlor '14, '19'24</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/anlor-14-19-24-x-portret.jpg')">
+            <img src="images/anlor-14-19-24-x-portret.jpg" alt="Anlor '14, '19'24, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="annabel-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Annabel </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Annabel </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/annabel-x-portret-3.jpg')">
+            <img src="images/annabel-x-portret-3.jpg" alt="Annabel , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/annabel-x-cover.jpg')">
+            <img src="images/annabel-x-cover.jpg" alt="Cover, Annabel " loading="lazy">
+            <div class="cap">cover — Magus 2</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/annabel-x-cover-1.jpg')">
+            <img src="images/annabel-x-cover-1.jpg" alt="Cover, Annabel " loading="lazy">
+            <div class="cap">cover — Roma 3 (privé '20)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/annabel-x-cover-2.jpg')">
+            <img src="images/annabel-x-cover-2.jpg" alt="Cover, Annabel " loading="lazy">
+            <div class="cap">cover — Roma 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="annabel-prive-16-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Annabel  (prive '16)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Annabel  (prive '16)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/annabel-prive-16-x-portret.jpg')">
+            <img src="images/annabel-prive-16-x-portret.jpg" alt="Annabel  (prive '16), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="ansar-christophe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Ansar, Christophe </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Ansar, Christophe </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ansar-christophe-x-portret-2.jpg')">
+            <img src="images/ansar-christophe-x-portret-2.jpg" alt="Ansar, Christophe , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ansar-christophe-x-cover.jpg')">
+            <img src="images/ansar-christophe-x-cover.jpg" alt="Cover, Ansar, Christophe " loading="lazy">
+            <div class="cap">cover — De laatste profetie III (Buc '23)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ansar-christophe-x-cover-1.jpg')">
+            <img src="images/ansar-christophe-x-cover-1.jpg" alt="Cover, Ansar, Christophe " loading="lazy">
+            <div class="cap">cover — De laatste profetie III</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="antiga-paolo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Antiga, Paolo </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Antiga, Paolo </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/antiga-paolo-x-portret-2.jpg')">
+            <img src="images/antiga-paolo-x-portret-2.jpg" alt="Antiga, Paolo , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/antiga-paolo-x-cover.jpg')">
+            <img src="images/antiga-paolo-x-cover.jpg" alt="Cover, Antiga, Paolo " loading="lazy">
+            <div class="cap">cover — Megalodon (BA '25)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/antiga-paolo-x-cover-1.jpg')">
+            <img src="images/antiga-paolo-x-cover-1.jpg" alt="Cover, Antiga, Paolo " loading="lazy">
+            <div class="cap">cover — Megalodon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="antista-paola-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Antista, Paola</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Antista, Paola</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/antista-paola-x-portret-2.jpg')">
+            <img src="images/antista-paola-x-portret-2.jpg" alt="Antista, Paola, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/antista-paola-x-cover.jpg')">
+            <img src="images/antista-paola-x-cover.jpg" alt="Cover, Antista, Paola" loading="lazy">
+            <div class="cap">cover — Miauw (prive '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/antista-paola-x-cover-1.jpg')">
+            <img src="images/antista-paola-x-cover-1.jpg" alt="Cover, Antista, Paola" loading="lazy">
+            <div class="cap">cover — Miauw 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aouamri-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aouamri </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aouamri </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-x-cover.jpg')">
+            <img src="images/aouamri-x-cover.jpg" alt="Cover, Aouamri " loading="lazy">
+            <div class="cap">cover — Op zoek naar de tijdvogel  tek (St Gilles '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-x-cover-1.jpg')">
+            <img src="images/aouamri-x-cover-1.jpg" alt="Cover, Aouamri " loading="lazy">
+            <div class="cap">cover — Op zoek naar de tijdvogel (St Gilles '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-x-cover-2.jpg')">
+            <img src="images/aouamri-x-cover-2.jpg" alt="Cover, Aouamri " loading="lazy">
+            <div class="cap">cover — Saga Valta (prive '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-x-cover-3.jpg')">
+            <img src="images/aouamri-x-cover-3.jpg" alt="Cover, Aouamri " loading="lazy">
+            <div class="cap">cover — Saga Valta 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aouamri-st-gilles-10-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aouamri (St Gilles '10)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aouamri (St Gilles '10)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-st-gilles-10-x-portret.jpg')">
+            <img src="images/aouamri-st-gilles-10-x-portret.jpg" alt="Aouamri (St Gilles '10), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aouamri-mohamed-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aouamri, Mohamed</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aouamri, Mohamed</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-mohamed-x-portret.jpg')">
+            <img src="images/aouamri-mohamed-x-portret.jpg" alt="Aouamri, Mohamed, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aouamri-mohammed-lyz-17-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aouamri, Mohammed (Lyz '17)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aouamri, Mohammed (Lyz '17)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-mohammed-lyz-17-x-portret.jpg')">
+            <img src="images/aouamri-mohammed-lyz-17-x-portret.jpg" alt="Aouamri, Mohammed (Lyz '17), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aouamri-mohammed-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aouamri,Mohammed </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aouamri,Mohammed </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-mohammed-x-cover.jpg')">
+            <img src="images/aouamri-mohammed-x-cover.jpg" alt="Cover, Aouamri,Mohammed " loading="lazy">
+            <div class="cap">cover — Thorgal (BA 26)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aouamri-m-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aouamri.,M </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aouamri.,M </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aouamri-m-x-cover.jpg')">
+            <img src="images/aouamri-m-x-cover.jpg" alt="Cover, Aouamri.,M " loading="lazy">
+            <div class="cap">cover — Thorgal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="ardisha-c-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Ardisha, C. </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Ardisha, C. </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ardisha-c-x-cover.jpg')">
+            <img src="images/ardisha-c-x-cover.jpg" alt="Cover, Ardisha, C. " loading="lazy">
+            <div class="cap">cover — Troje  (prive '17)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ardisha-c-x-cover-1.jpg')">
+            <img src="images/ardisha-c-x-cover-1.jpg" alt="Cover, Ardisha, C. " loading="lazy">
+            <div class="cap">cover — Troje 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="are-alex-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Are, Alex  </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Are, Alex  </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/are-alex-x-cover.jpg')">
+            <img src="images/are-alex-x-cover.jpg" alt="Cover, Are, Alex  " loading="lazy">
+            <div class="cap">cover — Mickey Mouse (blad, St Gilles '08)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arends-j-p-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arends, J.P. </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arends, J.P. </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arends-j-p-x-cover.jpg')">
+            <img src="images/arends-j-p-x-cover.jpg" alt="Cover, Arends, J.P. " loading="lazy">
+            <div class="cap">cover — Scribbly (blad, Breda '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arends-jean-paul-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arends, Jean Paul</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arends, Jean Paul</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arends-jean-paul-x-portret.jpg')">
+            <img src="images/arends-jean-paul-x-portret.jpg" alt="Arends, Jean Paul, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="argibald-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Argibald </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Argibald </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/argibald-x-cover.jpg')">
+            <img src="images/argibald-x-cover.jpg" alt="Cover, Argibald " loading="lazy">
+            <div class="cap">cover — Filmfanfare, Abel tek (Utrecht '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arinouchkine-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arinouchkine </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arinouchkine </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arinouchkine-x-portret-1.jpg')">
+            <img src="images/arinouchkine-x-portret-1.jpg" alt="Arinouchkine , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arinouchkine-x-cover.jpg')">
+            <img src="images/arinouchkine-x-cover.jpg" alt="Cover, Arinouchkine " loading="lazy">
+            <div class="cap">cover — tek (Ganshoren '11)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aris-gilles-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aris, Gilles </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aris, Gilles </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-x-cover.jpg')">
+            <img src="images/aris-gilles-x-cover.jpg" alt="Cover, Aris, Gilles " loading="lazy">
+            <div class="cap">cover — De Ballade van Dusty 1 (BA 26)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-x-cover-1.jpg')">
+            <img src="images/aris-gilles-x-cover-1.jpg" alt="Cover, Aris, Gilles " loading="lazy">
+            <div class="cap">cover — De Ballade van Dusty 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-x-cover-2.jpg')">
+            <img src="images/aris-gilles-x-cover-2.jpg" alt="Cover, Aris, Gilles " loading="lazy">
+            <div class="cap">cover — De Ballade van Dusty 2 (BA 26)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-x-cover-3.jpg')">
+            <img src="images/aris-gilles-x-cover-3.jpg" alt="Cover, Aris, Gilles " loading="lazy">
+            <div class="cap">cover — De Ballade van Dusty 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aris-gilles-de-ballade-van-dusty-1-1">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aris, Gilles ,  De ballade van Dusty 1 (1)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> De ballade van Dusty 1 (1) Aris, Gilles </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-de-ballade-van-dusty-1-1-portret.jpg')">
+            <img src="images/aris-gilles-de-ballade-van-dusty-1-1-portret.jpg" alt="Aris, Gilles ,  De ballade van Dusty 1 (1), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aris-gilles-de-ballade-van-dusty-1-blad-22">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aris, Gilles ,  De ballade van Dusty 1 (blad '22)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> De ballade van Dusty 1 (blad '22) Aris, Gilles </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-de-ballade-van-dusty-1-blad-22-portret.jpg')">
+            <img src="images/aris-gilles-de-ballade-van-dusty-1-blad-22-portret.jpg" alt="Aris, Gilles ,  De ballade van Dusty 1 (blad '22), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aris-gilles-5-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aris, Gilles (5)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aris, Gilles (5)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aris-gilles-5-x-portret.jpg')">
+            <img src="images/aris-gilles-5-x-portret.jpg" alt="Aris, Gilles (5), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arleston-anzin-15-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arleston (Anzin '15)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arleston (Anzin '15)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arleston-anzin-15-x-portret.jpg')">
+            <img src="images/arleston-anzin-15-x-portret.jpg" alt="Arleston (Anzin '15), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="armand-dimitri-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Armand Dimitri</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Armand Dimitri</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/armand-dimitri-x-portret.jpg')">
+            <img src="images/armand-dimitri-x-portret.jpg" alt="Armand Dimitri, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/armand-dimitri-x-cover-1.jpg')">
+            <img src="images/armand-dimitri-x-cover-1.jpg" alt="Cover, Armand Dimitri" loading="lazy">
+            <div class="cap">cover — Nieuwe avonturen van Bob Morane (Angouleme '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/armand-dimitri-x-cover-2.jpg')">
+            <img src="images/armand-dimitri-x-cover-2.jpg" alt="Cover, Armand Dimitri" loading="lazy">
+            <div class="cap">cover — Nieuwe avonturen van Bob Morane</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arnaud-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arnaud </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arnaud </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnaud-x-cover.jpg')">
+            <img src="images/arnaud-x-cover.jpg" alt="Cover, Arnaud " loading="lazy">
+            <div class="cap">cover — Finn -Het zwevende woud ('02)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arnaud-letterier-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arnaud letterier </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arnaud letterier </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnaud-letterier-x-portret-1.jpg')">
+            <img src="images/arnaud-letterier-x-portret-1.jpg" alt="Arnaud letterier , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnaud-letterier-x-cover.jpg')">
+            <img src="images/arnaud-letterier-x-cover.jpg" alt="Cover, Arnaud letterier " loading="lazy">
+            <div class="cap">cover — Finn -Het zwevende woud tek ('02)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arnoux-eric-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arnoux, Eric </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arnoux, Eric </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-eric-x-cover.jpg')">
+            <img src="images/arnoux-eric-x-cover.jpg" alt="Cover, Arnoux, Eric " loading="lazy">
+            <div class="cap">cover — Timon van de Velden -droom van Amerika (Sete, 16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-eric-x-cover-1.jpg')">
+            <img src="images/arnoux-eric-x-cover-1.jpg" alt="Cover, Arnoux, Eric " loading="lazy">
+            <div class="cap">cover — Timon van de Velden 1 (droom van Amerika)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arnoux-erik-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arnoux, Erik </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arnoux, Erik </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-erik-x-portret-2.jpg')">
+            <img src="images/arnoux-erik-x-portret-2.jpg" alt="Arnoux, Erik , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-erik-x-cover.jpg')">
+            <img src="images/arnoux-erik-x-cover.jpg" alt="Cover, Arnoux, Erik " loading="lazy">
+            <div class="cap">cover — Solfetta (Bergambacht '16</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-erik-x-cover-1.jpg')">
+            <img src="images/arnoux-erik-x-cover-1.jpg" alt="Cover, Arnoux, Erik " loading="lazy">
+            <div class="cap">cover — Solfetta 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arnoux-lucie-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arnoux, Lucie </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arnoux, Lucie </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-lucie-x-portret-2.jpg')">
+            <img src="images/arnoux-lucie-x-portret-2.jpg" alt="Arnoux, Lucie , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-lucie-x-cover.jpg')">
+            <img src="images/arnoux-lucie-x-cover.jpg" alt="Cover, Arnoux, Lucie " loading="lazy">
+            <div class="cap">cover — Enola Holmes (St Mal '25)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arnoux-lucie-x-cover-1.jpg')">
+            <img src="images/arnoux-lucie-x-cover-1.jpg" alt="Cover, Arnoux, Lucie " loading="lazy">
+            <div class="cap">cover — Enola Holmes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aroca-loreto-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aroca, Loreto </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aroca, Loreto </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aroca-loreto-x-portret-2.jpg')">
+            <img src="images/aroca-loreto-x-portret-2.jpg" alt="Aroca, Loreto , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aroca-loreto-x-cover.jpg')">
+            <img src="images/aroca-loreto-x-cover.jpg" alt="Cover, Aroca, Loreto " loading="lazy">
+            <div class="cap">cover — De secretaresse van Auschwitz BA '25)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aroca-loreto-x-cover-1.jpg')">
+            <img src="images/aroca-loreto-x-cover-1.jpg" alt="Cover, Aroca, Loreto " loading="lazy">
+            <div class="cap">cover — De secretaresse van Auschwitz</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arroyo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arroyo </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arroyo </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-x-cover.jpg')">
+            <img src="images/arroyo-x-cover.jpg" alt="Cover, Arroyo " loading="lazy">
+            <div class="cap">cover — Buck Danny</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arroyo-18-22-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arroyo '18, '22</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arroyo '18, '22</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-18-22-x-portret.jpg')">
+            <img src="images/arroyo-18-22-x-portret.jpg" alt="Arroyo '18, '22, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arroyo-j-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arroyo,  J</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arroyo,  J</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-j-x-cover.jpg')">
+            <img src="images/arroyo-j-x-cover.jpg" alt="Cover, Arroyo,  J" loading="lazy">
+            <div class="cap">cover — M -Buck Danny classic 3</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-j-x-cover-1.jpg')">
+            <img src="images/arroyo-j-x-cover-1.jpg" alt="Cover, Arroyo,  J" loading="lazy">
+            <div class="cap">cover — M -Buck Danny classic 4(Middelkerke '18)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-j-x-cover-2.jpg')">
+            <img src="images/arroyo-j-x-cover-2.jpg" alt="Cover, Arroyo,  J" loading="lazy">
+            <div class="cap">cover — M.- Buck Danny - 2 Duel boven Mig alley</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-j-x-cover-3.jpg')">
+            <img src="images/arroyo-j-x-cover-3.jpg" alt="Cover, Arroyo,  J" loading="lazy">
+            <div class="cap">cover — M.- Buck Danny - Duel boven Mig alley (Séte '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-j-x-cover-4.jpg')">
+            <img src="images/arroyo-j-x-cover-4.jpg" alt="Cover, Arroyo,  J" loading="lazy">
+            <div class="cap">cover — M.- Buck Danny - Duivelseiland (Séte '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-j-x-cover-5.jpg')">
+            <img src="images/arroyo-j-x-cover-5.jpg" alt="Cover, Arroyo,  J" loading="lazy">
+            <div class="cap">cover — M.- Buck Danny -4 Duivelseiland</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="arroyo-jean-michel-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Arroyo, Jean Michel</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Arroyo, Jean Michel</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-jean-michel-x-cover.jpg')">
+            <img src="images/arroyo-jean-michel-x-cover.jpg" alt="Cover, Arroyo, Jean Michel" loading="lazy">
+            <div class="cap">cover — Buck Danny (prive '14)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/arroyo-jean-michel-x-cover-1.jpg')">
+            <img src="images/arroyo-jean-michel-x-cover-1.jpg" alt="Cover, Arroyo, Jean Michel" loading="lazy">
+            <div class="cap">cover — Buck Danny classic</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="artez-stripacademie-blad-zwolle-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Artez stripacademie (blad, Zwolle '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Artez stripacademie (blad, Zwolle '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artez-stripacademie-blad-zwolle-12-x-portret.jpg')">
+            <img src="images/artez-stripacademie-blad-zwolle-12-x-portret.jpg" alt="Artez stripacademie (blad, Zwolle '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="artoupan-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Artoupan</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Artoupan</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artoupan-x-cover.jpg')">
+            <img src="images/artoupan-x-cover.jpg" alt="Cover, Artoupan" loading="lazy">
+            <div class="cap">cover — Maharaja (Anthracite  '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artoupan-x-cover-1.jpg')">
+            <img src="images/artoupan-x-cover-1.jpg" alt="Cover, Artoupan" loading="lazy">
+            <div class="cap">cover — Maharaja tek(Anthracite  '12)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="artoupan-anthracite-12-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Artoupan (Anthracite  '12)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Artoupan (Anthracite  '12)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artoupan-anthracite-12-x-portret.jpg')">
+            <img src="images/artoupan-anthracite-12-x-portret.jpg" alt="Artoupan (Anthracite  '12), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="artz-tim-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Artz, Tim </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Artz, Tim </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artz-tim-x-portret-5.jpg')">
+            <img src="images/artz-tim-x-portret-5.jpg" alt="Artz, Tim , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artz-tim-x-cover.jpg')">
+            <img src="images/artz-tim-x-cover.jpg" alt="Cover, Artz, Tim " loading="lazy">
+            <div class="cap">cover — de Romeinen (blad, Scheltema 24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artz-tim-x-cover-1.jpg')">
+            <img src="images/artz-tim-x-cover-1.jpg" alt="Cover, Artz, Tim " loading="lazy">
+            <div class="cap">cover — De Romeinen 1 (Epe '25)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artz-tim-x-cover-2.jpg')">
+            <img src="images/artz-tim-x-cover-2.jpg" alt="Cover, Artz, Tim " loading="lazy">
+            <div class="cap">cover — De Romeinen 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artz-tim-x-cover-3.jpg')">
+            <img src="images/artz-tim-x-cover-3.jpg" alt="Cover, Artz, Tim " loading="lazy">
+            <div class="cap">cover — Tom Poes 12(Deventer '24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/artz-tim-x-cover-4.jpg')">
+            <img src="images/artz-tim-x-cover-4.jpg" alt="Cover, Artz, Tim " loading="lazy">
+            <div class="cap">cover — Tom Poes 12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="asker-niklas-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Asker, Niklas</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Asker, Niklas</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/asker-niklas-x-portret.jpg')">
+            <img src="images/asker-niklas-x-portret.jpg" alt="Asker, Niklas, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="asker-niklas-blad-haarlem-10-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Asker, Niklas (blad, Haarlem '10)</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Asker, Niklas (blad, Haarlem '10)</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/asker-niklas-blad-haarlem-10-x-portret.jpg')">
+            <img src="images/asker-niklas-blad-haarlem-10-x-portret.jpg" alt="Asker, Niklas (blad, Haarlem '10), portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="astier-laurent-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Astier, Laurent</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Astier, Laurent</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-portret-6.jpg')">
+            <img src="images/astier-laurent-x-portret-6.jpg" alt="Astier, Laurent, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-cover.jpg')">
+            <img src="images/astier-laurent-x-cover.jpg" alt="Cover, Astier, Laurent" loading="lazy">
+            <div class="cap">cover — Het venijn 1 (Leo'burg 24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-cover-1.jpg')">
+            <img src="images/astier-laurent-x-cover-1.jpg" alt="Cover, Astier, Laurent" loading="lazy">
+            <div class="cap">cover — Het venijn 1</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-cover-2.jpg')">
+            <img src="images/astier-laurent-x-cover-2.jpg" alt="Cover, Astier, Laurent" loading="lazy">
+            <div class="cap">cover — Zo maak je fortuin in Juni 1940 (Bergambacht '16)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-cover-3.jpg')">
+            <img src="images/astier-laurent-x-cover-3.jpg" alt="Cover, Astier, Laurent" loading="lazy">
+            <div class="cap">cover — Zo maak je fortuin in Juni 1940 (Bergambacht '16</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-cover-4.jpg')">
+            <img src="images/astier-laurent-x-cover-4.jpg" alt="Cover, Astier, Laurent" loading="lazy">
+            <div class="cap">cover — Dodehoek (Bergambacht '16</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-laurent-x-cover-5.jpg')">
+            <img src="images/astier-laurent-x-cover-5.jpg" alt="Cover, Astier, Laurent" loading="lazy">
+            <div class="cap">cover — Dodehoek 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="astier-stefan-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Astier, Stefan  </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Astier, Stefan  </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/astier-stefan-x-cover.jpg')">
+            <img src="images/astier-stefan-x-cover.jpg" alt="Cover, Astier, Stefan  " loading="lazy">
+            <div class="cap">cover — Neve (blad, St Gilles '08)-1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="attanasio-dino-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Attanasio, Dino </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Attanasio, Dino </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover.jpg')">
+            <img src="images/attanasio-dino-x-cover.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — Bob Morane (blad, Maasmechelen '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover-1.jpg')">
+            <img src="images/attanasio-dino-x-cover-1.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — Goud in de Wielen ( Kruibeke '08)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover-2.jpg')">
+            <img src="images/attanasio-dino-x-cover-2.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — Goud in de Wielen tek ( Kruibeke '08)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover-3.jpg')">
+            <img src="images/attanasio-dino-x-cover-3.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — J. Goodbye 11 (Kruibeke '08)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover-4.jpg')">
+            <img src="images/attanasio-dino-x-cover-4.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — Spaghetti in de Woestijn ( Kruibeke '08)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover-5.jpg')">
+            <img src="images/attanasio-dino-x-cover-5.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — Spaghetti in de Woestijn tek ( Kruibeke '08)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasio-dino-x-cover-6.jpg')">
+            <img src="images/attanasio-dino-x-cover-6.jpg" alt="Cover, Attanasio, Dino " loading="lazy">
+            <div class="cap">cover — Ton&Tineke (blad, Maasmechelen '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="attanasoi-dino-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Attanasoi, Dino</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Attanasoi, Dino</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanasoi-dino-x-cover.jpg')">
+            <img src="images/attanasoi-dino-x-cover.jpg" alt="Cover, Attanasoi, Dino" loading="lazy">
+            <div class="cap">cover — J. Goodbye 11 tek (Kruibeke '08)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="attanassio-dino-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Attanassio, Dino</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Attanassio, Dino</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/attanassio-dino-x-portret.jpg')">
+            <img src="images/attanassio-dino-x-portret.jpg" alt="Attanassio, Dino, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aubin-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aubin </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aubin </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aubin-x-cover.jpg')">
+            <img src="images/aubin-x-cover.jpg" alt="Cover, Aubin " loading="lazy">
+            <div class="cap">cover — Blake en Mortimer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aubin-antoine-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aubin, Antoine</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aubin, Antoine</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aubin-antoine-x-cover.jpg')">
+            <img src="images/aubin-antoine-x-cover.jpg" alt="Cover, Aubin, Antoine" loading="lazy">
+            <div class="cap">cover — Blake en Mortimer (Angouleme '14)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="augustin-victoria-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Augustin, Victoria</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Augustin, Victoria</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-victoria-x-portret.jpg')">
+            <img src="images/augustin-victoria-x-portret.jpg" alt="Augustin, Victoria, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="augustin-virginie-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Augustin, Virginie </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Augustin, Virginie </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover.jpg')">
+            <img src="images/augustin-virginie-x-cover.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier (Charleville Mezierë '14)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-1.jpg')">
+            <img src="images/augustin-virginie-x-cover-1.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier - 3 Land vd bleke profeet tek (Breda '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-2.jpg')">
+            <img src="images/augustin-virginie-x-cover-2.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier - 4 het heilige land ( St Gilles '11)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-3.jpg')">
+            <img src="images/augustin-virginie-x-cover-3.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier - 4 het heilige land tek( St Gilles '11)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-4.jpg')">
+            <img src="images/augustin-virginie-x-cover-4.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier 2</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-5.jpg')">
+            <img src="images/augustin-virginie-x-cover-5.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Conan (Charleville M '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-6.jpg')">
+            <img src="images/augustin-virginie-x-cover-6.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Conan</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-7.jpg')">
+            <img src="images/augustin-virginie-x-cover-7.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — de 1e keer (Charleville '14) - kopie</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-8.jpg')">
+            <img src="images/augustin-virginie-x-cover-8.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — de 1e keer</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-9.jpg')">
+            <img src="images/augustin-virginie-x-cover-9.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier -  3 Land vd bleke profeet (Breda '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-10.jpg')">
+            <img src="images/augustin-virginie-x-cover-10.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier - 1 Geheim vd zee (Amiens '09)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/augustin-virginie-x-cover-11.jpg')">
+            <img src="images/augustin-virginie-x-cover-11.jpg" alt="Cover, Augustin, Virginie " loading="lazy">
+            <div class="cap">cover — Alim de leerlooier - 1 Geheim vd zee tek (Amiens '09)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="auladell-pablo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Auladell, Pablo </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Auladell, Pablo </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/auladell-pablo-x-portret-2.jpg')">
+            <img src="images/auladell-pablo-x-portret-2.jpg" alt="Auladell, Pablo , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/auladell-pablo-x-cover.jpg')">
+            <img src="images/auladell-pablo-x-cover.jpg" alt="Cover, Auladell, Pablo " loading="lazy">
+            <div class="cap">cover — Het verloren paradijs (Angouleme '19)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/auladell-pablo-x-cover-1.jpg')">
+            <img src="images/auladell-pablo-x-cover-1.jpg" alt="Cover, Auladell, Pablo " loading="lazy">
+            <div class="cap">cover — Het verloren paradijs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aurita-aurelia-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aurita, Aurelia </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aurita, Aurelia </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aurita-aurelia-x-portret-2.jpg')">
+            <img src="images/aurita-aurelia-x-portret-2.jpg" alt="Aurita, Aurelia , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aurita-aurelia-x-cover.jpg')">
+            <img src="images/aurita-aurelia-x-cover.jpg" alt="Cover, Aurita, Aurelia " loading="lazy">
+            <div class="cap">cover — Smakelijk leven (Haarlem '24)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aurita-aurelia-x-cover-1.jpg')">
+            <img src="images/aurita-aurelia-x-cover-1.jpg" alt="Cover, Aurita, Aurelia " loading="lazy">
+            <div class="cap">cover — Smakelijk leven</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="ausloos-paul-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Ausloos, Paul </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Ausloos, Paul </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/ausloos-paul-x-cover.jpg')">
+            <img src="images/ausloos-paul-x-cover.jpg" alt="Cover, Ausloos, Paul " loading="lazy">
+            <div class="cap">cover — het mannetje (strook)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="avril-marie-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Avril, Marie </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Avril, Marie </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/avril-marie-x-portret-2.jpg')">
+            <img src="images/avril-marie-x-portret-2.jpg" alt="Avril, Marie , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/avril-marie-x-cover.jpg')">
+            <img src="images/avril-marie-x-cover.jpg" alt="Cover, Avril, Marie " loading="lazy">
+            <div class="cap">cover — Ontboezemingen aan Allah (Lyon '22)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/avril-marie-x-cover-1.jpg')">
+            <img src="images/avril-marie-x-cover-1.jpg" alt="Cover, Avril, Marie " loading="lazy">
+            <div class="cap">cover — Ontboezemingen aan Allah</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aymond-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aymond</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aymond</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aymond-x-portret-2.jpg')">
+            <img src="images/aymond-x-portret-2.jpg" alt="Aymond, portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aymond-x-cover.jpg')">
+            <img src="images/aymond-x-cover.jpg" alt="Cover, Aymond" loading="lazy">
+            <div class="cap">cover — Lady S- 1 na zdrorovje (Waterloo '10)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aymond-x-cover-1.jpg')">
+            <img src="images/aymond-x-cover-1.jpg" alt="Cover, Aymond" loading="lazy">
+            <div class="cap">cover — Lady S- 1 na zdrorovje tek(Waterloo '10)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="aymond-phillippe-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Aymond, Phillippe</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Aymond, Phillippe</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aymond-phillippe-x-cover.jpg')">
+            <img src="images/aymond-phillippe-x-cover.jpg" alt="Cover, Aymond, Phillippe" loading="lazy">
+            <div class="cap">cover — Pijl van Nemrod 2jpg</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/aymond-phillippe-x-cover-1.jpg')">
+            <img src="images/aymond-phillippe-x-cover-1.jpg" alt="Cover, Aymond, Phillippe" loading="lazy">
+            <div class="cap">cover — Pijl van Nemrod (Erlangen '14)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="azaceta-paul-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Azaceta, Paul </span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Azaceta, Paul </h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azaceta-paul-x-portret-2.jpg')">
+            <img src="images/azaceta-paul-x-portret-2.jpg" alt="Azaceta, Paul , portret" loading="lazy">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azaceta-paul-x-cover.jpg')">
+            <img src="images/azaceta-paul-x-cover.jpg" alt="Cover, Azaceta, Paul " loading="lazy">
+            <div class="cap">cover — Outcast (Facts '17)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azaceta-paul-x-cover-1.jpg')">
+            <img src="images/azaceta-paul-x-cover-1.jpg" alt="Cover, Azaceta, Paul " loading="lazy">
+            <div class="cap">cover — Outcast 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="azara-jo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Azara, Jo</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Azara, Jo</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azara-jo-x-cover.jpg')">
+            <img src="images/azara-jo-x-cover.jpg" alt="Cover, Azara, Jo" loading="lazy">
+            <div class="cap">cover — El, Clifton - De duivelse dwergen (Contern '14)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azara-jo-x-cover-1.jpg')">
+            <img src="images/azara-jo-x-cover-1.jpg" alt="Cover, Azara, Jo" loading="lazy">
+            <div class="cap">cover — El, Clifton - De duivelse dwergen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entry" data-key="azare-jo-x">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Azare, Jo</span>
+        <span class="entry-meta"></span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3> Azare, Jo</h3>
+            <div class="festivals"></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azare-jo-x-cover.jpg')">
+            <img src="images/azare-jo-x-cover.jpg" alt="Cover, Azare, Jo" loading="lazy">
+            <div class="cap">cover — El - Taka Takata - ziet ze vliegen (Knokke '12)</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azare-jo-x-cover-1.jpg')">
+            <img src="images/azare-jo-x-cover-1.jpg" alt="Cover, Azare, Jo" loading="lazy">
+            <div class="cap">cover — El - Taka Takata - ziet ze vliegen(Contern '14))</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azare-jo-x-cover-2.jpg')">
+            <img src="images/azare-jo-x-cover-2.jpg" alt="Cover, Azare, Jo" loading="lazy">
+            <div class="cap">cover — El - Taka Takata - ziet ze vliegen</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/azare-jo-x-cover-3.jpg')">
+            <img src="images/azare-jo-x-cover-3.jpg" alt="Cover, Azare, Jo" loading="lazy">
+            <div class="cap">cover — El</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="letter-group" id="letter-B">
-    <div class="letter">B</div>
-
-    <div class="entry" data-key="baay">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Baay, Mattt</span>
-        <span class="entry-meta">Breda '11 · Utrecht '12</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Mattt Baay</h3>
-            <div class="festivals"><span>Breda 2011</span><span>Utrecht 2012</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/baay-mattt-portret.jpg')">
-            <img src="images/baay-mattt-portret.jpg" alt="Mattt Baay, portret">
-            <div class="cap">portret — Utrecht '12</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/baay-mattt-opdracht.jpg')">
-            <img src="images/baay-mattt-opdracht.jpg" alt="Opdracht van Mattt Baay, Bun Bun">
-            <div class="cap">opdracht — Bun Bun</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/baay-mattt-cover.jpg')">
-            <img src="images/baay-mattt-cover.jpg" alt="Cover van Bun Bun Extra Carrots">
-            <div class="cap">cover — Bun Bun</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry" data-key="baba">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Baba</span>
-        <span class="entry-meta">Commando Kerstman</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Baba</h3>
-            <div class="festivals"><span>Commando Kerstman</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/baba-opdracht.jpg')">
-            <img src="images/baba-opdracht.jpg" alt="Opdracht van Baba, voor Leon">
-            <div class="cap">opdracht — voor Leon</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/baba-cover.jpg')">
-            <img src="images/baba-cover.jpg" alt="Cover van Commando Kerstman, Reddingsoperatie">
-            <div class="cap">cover — Commando Kerstman</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry" data-key="babini">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Babini, Stefano</span>
-        <span class="entry-meta">privé '13</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Stefano Babini</h3>
-            <div class="festivals"><span>privé sessie 2013</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/babini-stefano-portret.jpg')">
-            <img src="images/babini-stefano-portret.jpg" alt="Stefano Babini, portret">
-            <div class="cap">portret</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/babini-stefano-opdracht.jpg')">
-            <img src="images/babini-stefano-opdracht.jpg" alt="Opdracht van Stefano Babini">
-            <div class="cap">opdracht</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry" data-key="bablet">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Bablet, Mathieu</span>
-        <span class="entry-meta">Chambéry '24</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Mathieu Bablet</h3>
-            <div class="festivals"><span>Chambéry 2024</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/bablet-mathieu-portret.jpg')">
-            <img src="images/bablet-mathieu-portret.jpg" alt="Mathieu Bablet, portret">
-            <div class="cap">portret</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/bablet-mathieu-opdracht.jpg')">
-            <img src="images/bablet-mathieu-opdracht.jpg" alt="Opdracht van Mathieu Bablet, voor Leon">
-            <div class="cap">opdracht — voor Leon</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/bablet-mathieu-cover.jpg')">
-            <img src="images/bablet-mathieu-cover.jpg" alt="Cover van Carbon & Silicium">
-            <div class="cap">cover — Carbon &amp; Silicium</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry" data-key="babouche">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Babouche, Cedric</span>
-        <span class="entry-meta">Angoulême '15</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Cedric Babouche</h3>
-            <div class="festivals"><span>Angoulême 2015</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/babouche-cedric-opdracht.jpg')">
-            <img src="images/babouche-cedric-opdracht.jpg" alt="Opdracht van Cedric Babouche, Zwanenzang">
-            <div class="cap">opdracht — Zwanenzang</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/babouche-cedric-cover.jpg')">
-            <img src="images/babouche-cedric-cover.jpg" alt="Cover van Zwanenzang, Deel I">
-            <div class="cap">cover — Zwanenzang</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="letter-group" id="letter-C">
-    <div class="letter">C</div>
-
-    <div class="entry" data-key="cabanes">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Cabanes, Max</span>
-        <span class="entry-meta">Lys-lez-Lannoy '11</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Max Cabanes</h3>
-            <div class="festivals"><span>Lys-lez-Lannoy 2011</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/cabanes-max-portret.jpg')">
-            <img src="images/cabanes-max-portret.jpg" alt="Max Cabanes, portret">
-            <div class="cap">portret</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/cabanes-max-opdracht.jpg')">
-            <img src="images/cabanes-max-opdracht.jpg" alt="Opdracht van Max Cabanes in Blindemannetje">
-            <div class="cap">opdracht — Blindemannetje</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/cabanes-max-cover.jpg')">
-            <img src="images/cabanes-max-cover.jpg" alt="Cover van Blindemannetje">
-            <div class="cap">cover — Blindemannetje</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry" data-key="cagniat">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Cagniat, Laurent</span>
-        <span class="entry-meta">Charleville '15</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Laurent Cagniat</h3>
-            <div class="festivals"><span>Charleville 2015</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/cagniat-laurent-opdracht.jpg')">
-            <img src="images/cagniat-laurent-opdracht.jpg" alt="Opdracht van Laurent Cagniat">
-            <div class="cap">opdracht</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/cagniat-laurent-cover.jpg')">
-            <img src="images/cagniat-laurent-cover.jpg" alt="Cover van Doerakken">
-            <div class="cap">cover — Doerakken</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="letter-group" id="letter-D">
-    <div class="letter">D</div>
-
-    <div class="entry" data-key="dahan">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Dahan, Benoit</span>
-        <span class="entry-meta">Amiens '26</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Benoit Dahan</h3>
-            <div class="festivals"><span>Amiens 2026</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/dahan-benoit-opdracht.jpg')">
-            <img src="images/dahan-benoit-opdracht.jpg" alt="Opdracht van Benoit Dahan, voor Leon">
-            <div class="cap">opdracht — voor Leon</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/dahan-benoit-cover.jpg')">
-            <img src="images/dahan-benoit-cover.jpg" alt="Cover van In het hoofd van Sherlock Holmes">
-            <div class="cap">cover — Sherlock Holmes</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry" data-key="dairin">
-      <button class="entry-tag" onclick="toggleEntry(this)">
-        <span class="name-plate">Dairin, Ian</span>
-        <span class="entry-meta">Buc '23</span>
-        <span class="chev">+</span>
-      </button>
-      <div class="panel">
-        <div class="panel-inner">
-          <div class="bio">
-            <h3>Ian Dairin</h3>
-            <div class="festivals"><span>Buc 2023</span></div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/dairin-ian-portret.jpg')">
-            <img src="images/dairin-ian-portret.jpg" alt="Ian Dairin, portret">
-            <div class="cap">portret</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/dairin-ian-opdracht.jpg')">
-            <img src="images/dairin-ian-opdracht.jpg" alt="Opdracht van Ian Dairin, Kid Paddle">
-            <div class="cap">opdracht — Kid Paddle</div>
-          </div>
-          <div class="photo-card" onclick="openLightbox('images/dairin-ian-cover.jpg')">
-            <img src="images/dairin-ian-cover.jpg" alt="Cover van Kid Paddle 16">
-            <div class="cap">cover — Kid Paddle 16</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="no-results" id="no-results">Geen tekenaar gevonden.</div>
 </div>
@@ -694,26 +3573,6 @@
 </div>
 
 <script>
-const ACCESS_CODE = "leon2026"; // <-- verander dit in je eigen code
-
-function checkGate(){
-  const input = document.getElementById('gate-input').value.trim();
-  if(input === ACCESS_CODE){
-    sessionStorage.setItem('getekend-unlocked', '1');
-    document.getElementById('gate').style.display = 'none';
-    document.getElementById('site-content').style.display = 'block';
-  } else {
-    document.getElementById('gate-error').classList.add('show');
-  }
-}
-document.getElementById('gate-input').addEventListener('keydown', e => {
-  if(e.key === 'Enter') checkGate();
-});
-if(sessionStorage.getItem('getekend-unlocked') === '1'){
-  document.getElementById('gate').style.display = 'none';
-  document.getElementById('site-content').style.display = 'block';
-}
-
 (function buildAlphaNav(){
   const nav = document.getElementById('alpha-nav');
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -741,26 +3600,21 @@ function toggleEntry(btn){
     setTimeout(() => entry.scrollIntoView({behavior:'smooth', block:'nearest'}), 150);
   }
 }
-
 function openLightbox(src){
-  const lb = document.getElementById('lightbox');
   document.getElementById('lightbox-img').src = src;
-  lb.classList.add('show');
+  document.getElementById('lightbox').classList.add('show');
 }
 function closeLightbox(e){
   if(e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')){
     document.getElementById('lightbox').classList.remove('show');
   }
 }
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
-});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('show'); });
 
 function filterEntries(){
   const q = document.getElementById('search-box').value.trim().toLowerCase();
   const groups = document.querySelectorAll('.letter-group');
   let anyVisible = false;
-
   groups.forEach(group => {
     let groupHasMatch = false;
     group.querySelectorAll('.entry').forEach(entry => {
@@ -772,10 +3626,7 @@ function filterEntries(){
     group.style.display = groupHasMatch ? '' : 'none';
     if(groupHasMatch) anyVisible = true;
   });
-
   document.getElementById('no-results').classList.toggle('show', !anyVisible);
-
-  // dim A-Z letters that have no visible group while searching
   document.querySelectorAll('.alpha-nav a').forEach(a => {
     const letter = a.textContent;
     const grp = document.getElementById('letter-' + letter);
@@ -784,8 +3635,5 @@ function filterEntries(){
   });
 }
 </script>
-
-</div>
-
 </body>
 </html>
