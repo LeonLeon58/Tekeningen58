@@ -308,6 +308,17 @@
     color:var(--line);
   }
 
+  .search-wrap{max-width:920px;margin:1.5rem auto 0;padding:0 1.5rem;}
+  .search-box{
+    width:100%;font-family:'JetBrains Mono', monospace;font-size:0.95rem;
+    padding:0.7rem 1rem;border:1px solid var(--line);border-radius:4px;
+    background:var(--card);color:var(--ink);box-sizing:border-box;
+  }
+  .search-box:focus{outline:none;border-color:var(--red);}
+  .search-box::placeholder{color:var(--ink-soft);}
+  .no-results{display:none;padding:2rem 0.2rem;color:var(--ink-soft);font-style:italic;}
+  .no-results.show{display:block;}
+
   @media (max-width:560px){
     .hero{padding:3.5rem 1.2rem 2rem;}
     .index-wrap{padding:2rem 1.2rem 4rem;}
@@ -326,6 +337,10 @@
 </section>
 
 <nav class="alpha-nav" id="alpha-nav"></nav>
+
+<div class="search-wrap">
+  <input type="text" class="search-box" id="search-box" placeholder="Zoek op naam…" oninput="filterEntries()">
+</div>
 
 <div class="index-wrap">
   <div class="index-hint">alfabetisch · 11 tekenaars · klik om te openen</div>
@@ -629,6 +644,7 @@
       </div>
     </div>
   </div>
+  <div class="no-results" id="no-results">Geen tekenaar gevonden.</div>
 </div>
 
 <footer>gearchiveerd voor Leon</footer>
@@ -680,6 +696,34 @@ function closeLightbox(e){
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
 });
+
+function filterEntries(){
+  const q = document.getElementById('search-box').value.trim().toLowerCase();
+  const groups = document.querySelectorAll('.letter-group');
+  let anyVisible = false;
+
+  groups.forEach(group => {
+    let groupHasMatch = false;
+    group.querySelectorAll('.entry').forEach(entry => {
+      const name = entry.querySelector('.name-plate').textContent.toLowerCase();
+      const match = q === '' || name.includes(q);
+      entry.style.display = match ? '' : 'none';
+      if(match) groupHasMatch = true;
+    });
+    group.style.display = groupHasMatch ? '' : 'none';
+    if(groupHasMatch) anyVisible = true;
+  });
+
+  document.getElementById('no-results').classList.toggle('show', !anyVisible);
+
+  // dim A-Z letters that have no visible group while searching
+  document.querySelectorAll('.alpha-nav a').forEach(a => {
+    const letter = a.textContent;
+    const grp = document.getElementById('letter-' + letter);
+    const visible = grp && grp.style.display !== 'none';
+    a.style.opacity = (q === '' || visible) ? '1' : '0.35';
+  });
+}
 </script>
 
 </body>
