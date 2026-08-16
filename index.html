@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getekend — verzameling stripfestival-ontmoetingen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efe8d8;
+    --paper-alt:#e6dcc6;
+    --card:#faf7ee;
+    --ink:#211d17;
+    --ink-soft:#57503f;
+    --red:#a9392a;
+    --green:#33553f;
+    --gold:#b6822b;
+    --line:#c9bd9d;
+    --tag-shadow: rgba(33,29,23,0.18);
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at top left, #f4efe0 0%, var(--paper) 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(90,80,55,0.05) 28px);
+    color:var(--ink);
+    font-family:'Fraunces', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  ::selection{background:var(--gold); color:var(--card);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    max-width:920px;
+    margin:0 auto;
+    padding:5.5rem 1.5rem 3rem;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--red);
+    display:inline-block;
+    padding:0.25rem 0.6rem;
+    border:1px solid var(--red);
+    border-radius:2px;
+    margin-bottom:1.4rem;
+  }
+  .hero h1{
+    font-size:clamp(3rem, 9vw, 5.6rem);
+    line-height:0.92;
+    margin:0 0 0.3em 0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--green);
+  }
+  .hero p{
+    max-width:46ch;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+  .hero .scrawl{
+    font-family:'Caveat', cursive;
+    font-size:1.6rem;
+    color:var(--red);
+    display:inline-block;
+    margin-top:0.6rem;
+    transform:rotate(-2deg);
+  }
+
+  /* ---------- INDEX ---------- */
+  .index-wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:3rem 1.5rem 6rem;
+  }
+  .index-hint{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    letter-spacing:0.03em;
+    margin-bottom:2rem;
+  }
+
+  .letter-group{margin-bottom:1.2rem;}
+  .letter-group > .letter{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:2.6rem;
+    color:var(--line);
+    -webkit-text-stroke:1px var(--ink-soft);
+    color:transparent;
+    line-height:1;
+    margin:0 0 0.6rem 0;
+    user-select:none;
+  }
+
+  .entry{
+    border-top:1px solid var(--line);
+  }
+  .entry:last-child{border-bottom:1px solid var(--line);}
+
+  .entry-tag{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    width:100%;
+    background:none;
+    border:none;
+    text-align:left;
+    cursor:pointer;
+    padding:1.05rem 0.2rem;
+    font-family:inherit;
+  }
+  .entry-tag:hover .name-plate{
+    background:var(--card);
+    transform:translateY(-2px) rotate(-0.4deg);
+    box-shadow:0 6px 14px var(--tag-shadow);
+  }
+
+  .name-plate{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    background:var(--paper-alt);
+    padding:0.5rem 0.9rem;
+    border-radius:3px;
+    box-shadow:0 2px 5px var(--tag-shadow);
+    transition:all 0.18s ease;
+    white-space:nowrap;
+  }
+  .entry-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    flex:1;
+    text-align:right;
+    letter-spacing:0.02em;
+  }
+  .chev{
+    font-size:1.1rem;
+    color:var(--red);
+    transition:transform 0.25s ease;
+    flex-shrink:0;
+    width:1.2em;
+    text-align:center;
+  }
+  .entry.open .chev{transform:rotate(45deg);}
+
+  /* ---------- PANEL ---------- */
+  .panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+  }
+  .entry.open .panel{max-height:1400px;}
+
+  .panel-inner{
+    padding:0.4rem 0.2rem 2.4rem;
+    display:flex;
+    gap:1.5rem;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+
+  .photo-card{
+    background:var(--card);
+    padding:0.6rem 0.6rem 0.9rem;
+    box-shadow:0 8px 18px rgba(33,29,23,0.14);
+    width:210px;
+    cursor:zoom-in;
+    transition:transform 0.2s ease;
+  }
+  .photo-card:nth-child(1){transform:rotate(-1.6deg);}
+  .photo-card:nth-child(2){transform:rotate(1.1deg);}
+  .photo-card:nth-child(3){transform:rotate(-0.6deg);}
+  .photo-card:hover{transform:scale(1.03) rotate(0deg); z-index:2;}
+
+  .photo-card img{
+    width:100%;
+    display:block;
+    background:#ddd;
+  }
+  .photo-card .cap{
+    font-family:'Caveat', cursive;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    padding-top:0.5rem;
+    text-align:center;
+  }
+
+  .bio{
+    flex:1;
+    min-width:220px;
+    padding-top:0.3rem;
+  }
+  .bio h3{
+    font-size:1.5rem;
+    font-weight:600;
+    margin:0 0 0.3rem;
+  }
+  .bio .festivals{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    color:var(--green);
+    letter-spacing:0.02em;
+    line-height:1.8;
+  }
+  .bio .festivals span{
+    display:inline-block;
+    background:rgba(51,85,63,0.08);
+    padding:0.15rem 0.5rem;
+    border-radius:2px;
+    margin:0 0.3rem 0.3rem 0;
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox{
+    position:fixed; inset:0;
+    background:rgba(20,17,12,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:2rem;
+  }
+  .lightbox.show{display:flex;}
+  .lightbox img{
+    max-width:92vw;
+    max-height:88vh;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:absolute;
+    top:1.5rem; right:1.8rem;
+    font-family:'JetBrains Mono', monospace;
+    color:var(--paper);
+    font-size:1.6rem;
+    cursor:pointer;
+    background:none;
+    border:none;
+  }
+
+  footer{
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    padding:2.5rem 1.5rem 3.5rem;
+  }
+
+  /* ---------- A-Z NAV ---------- */
+  .alpha-nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:0.15rem;
+    padding:0.7rem 1rem;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+    font-weight:500;
+  }
+  .alpha-nav a, .alpha-nav span{
+    width:1.7em;
+    height:1.7em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:2px;
+    text-decoration:none;
+  }
+  .alpha-nav a{
+    color:var(--ink);
+    background:var(--card);
+    box-shadow:0 1px 3px var(--tag-shadow);
+    transition:all 0.15s ease;
+  }
+  .alpha-nav a:hover{
+    background:var(--red);
+    color:var(--paper);
+    transform:translateY(-1px);
+  }
+  .alpha-nav span{
+    color:var(--line);
+  }
+
+  @media (max-width:560px){
+    .hero{padding:3.5rem 1.2rem 2rem;}
+    .index-wrap{padding:2rem 1.2rem 4rem;}
+    .entry-meta{display:none;}
+    .photo-card{width:44%;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <span class="eyebrow">Persoonlijk archief · signeersessies</span>
+  <h1>Get<em>e</em>kend</h1>
+  <p>Portretten, opdrachten en covers verzameld op stripfestivals — van Angoulême tot Charleville, van Turnhout tot Lys-lez-Lannoy.</p>
+  <span class="scrawl">klik op een naam om de foto's te bekijken →</span>
+</section>
+
+<nav class="alpha-nav" id="alpha-nav"></nav>
+
+<div class="index-wrap">
+  <div class="index-hint">alfabetisch · 11 tekenaars · klik om te openen</div>
+
+  <div class="letter-group" id="letter-A">
+    <div class="letter">A</div>
+
+    <div class="entry" data-key="abel">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Abel, Jessica</span>
+        <span class="entry-meta">Turnhout '09</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Jessica Abel</h3>
+            <div class="festivals"><span>Turnhout 2009</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/abel-jessica-portret.jpg')">
+            <img src="images/abel-jessica-portret.jpg" alt="Jessica Abel, portret">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/abel-jessica-opdracht.jpg')">
+            <img src="images/abel-jessica-opdracht.jpg" alt="Opdracht van Jessica Abel in Mirror, Window">
+            <div class="cap">opdracht — Mirror, Window</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/abel-jessica-cover.jpg')">
+            <img src="images/abel-jessica-cover.jpg" alt="Cover van Mirror, Window">
+            <div class="cap">cover — Mirror, Window</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="abirached">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Abirached, Zeina</span>
+        <span class="entry-meta">Angoulême '19</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Zeina Abirached</h3>
+            <div class="festivals"><span>Angoulême 2019</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-portret.jpg')">
+            <img src="images/abirached-zeina-portret.jpg" alt="Zeina Abirached, portret">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/abirached-zeina-opdracht.jpg')">
+            <img src="images/abirached-zeina-opdracht.jpg" alt="Opdracht van Zeina Abirached, Zwaluwenspel">
+            <div class="cap">opdracht — Zwaluwenspel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter-group" id="letter-B">
+    <div class="letter">B</div>
+
+    <div class="entry" data-key="baay">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Baay, Mattt</span>
+        <span class="entry-meta">Breda '11 · Utrecht '12</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Mattt Baay</h3>
+            <div class="festivals"><span>Breda 2011</span><span>Utrecht 2012</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/baay-mattt-portret.jpg')">
+            <img src="images/baay-mattt-portret.jpg" alt="Mattt Baay, portret">
+            <div class="cap">portret — Utrecht '12</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/baay-mattt-opdracht.jpg')">
+            <img src="images/baay-mattt-opdracht.jpg" alt="Opdracht van Mattt Baay, Bun Bun">
+            <div class="cap">opdracht — Bun Bun</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/baay-mattt-cover.jpg')">
+            <img src="images/baay-mattt-cover.jpg" alt="Cover van Bun Bun Extra Carrots">
+            <div class="cap">cover — Bun Bun</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="baba">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Baba</span>
+        <span class="entry-meta">Commando Kerstman</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Baba</h3>
+            <div class="festivals"><span>Commando Kerstman</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/baba-opdracht.jpg')">
+            <img src="images/baba-opdracht.jpg" alt="Opdracht van Baba, voor Leon">
+            <div class="cap">opdracht — voor Leon</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/baba-cover.jpg')">
+            <img src="images/baba-cover.jpg" alt="Cover van Commando Kerstman, Reddingsoperatie">
+            <div class="cap">cover — Commando Kerstman</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="babini">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Babini, Stefano</span>
+        <span class="entry-meta">privé '13</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Stefano Babini</h3>
+            <div class="festivals"><span>privé sessie 2013</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/babini-stefano-portret.jpg')">
+            <img src="images/babini-stefano-portret.jpg" alt="Stefano Babini, portret">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/babini-stefano-opdracht.jpg')">
+            <img src="images/babini-stefano-opdracht.jpg" alt="Opdracht van Stefano Babini">
+            <div class="cap">opdracht</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="bablet">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Bablet, Mathieu</span>
+        <span class="entry-meta">Chambéry '24</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Mathieu Bablet</h3>
+            <div class="festivals"><span>Chambéry 2024</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/bablet-mathieu-portret.jpg')">
+            <img src="images/bablet-mathieu-portret.jpg" alt="Mathieu Bablet, portret">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/bablet-mathieu-opdracht.jpg')">
+            <img src="images/bablet-mathieu-opdracht.jpg" alt="Opdracht van Mathieu Bablet, voor Leon">
+            <div class="cap">opdracht — voor Leon</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/bablet-mathieu-cover.jpg')">
+            <img src="images/bablet-mathieu-cover.jpg" alt="Cover van Carbon & Silicium">
+            <div class="cap">cover — Carbon &amp; Silicium</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="babouche">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Babouche, Cedric</span>
+        <span class="entry-meta">Angoulême '15</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Cedric Babouche</h3>
+            <div class="festivals"><span>Angoulême 2015</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/babouche-cedric-opdracht.jpg')">
+            <img src="images/babouche-cedric-opdracht.jpg" alt="Opdracht van Cedric Babouche, Zwanenzang">
+            <div class="cap">opdracht — Zwanenzang</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/babouche-cedric-cover.jpg')">
+            <img src="images/babouche-cedric-cover.jpg" alt="Cover van Zwanenzang, Deel I">
+            <div class="cap">cover — Zwanenzang</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter-group" id="letter-C">
+    <div class="letter">C</div>
+
+    <div class="entry" data-key="cabanes">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Cabanes, Max</span>
+        <span class="entry-meta">Lys-lez-Lannoy '11</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Max Cabanes</h3>
+            <div class="festivals"><span>Lys-lez-Lannoy 2011</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/cabanes-max-portret.jpg')">
+            <img src="images/cabanes-max-portret.jpg" alt="Max Cabanes, portret">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/cabanes-max-opdracht.jpg')">
+            <img src="images/cabanes-max-opdracht.jpg" alt="Opdracht van Max Cabanes in Blindemannetje">
+            <div class="cap">opdracht — Blindemannetje</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/cabanes-max-cover.jpg')">
+            <img src="images/cabanes-max-cover.jpg" alt="Cover van Blindemannetje">
+            <div class="cap">cover — Blindemannetje</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="cagniat">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Cagniat, Laurent</span>
+        <span class="entry-meta">Charleville '15</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Laurent Cagniat</h3>
+            <div class="festivals"><span>Charleville 2015</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/cagniat-laurent-opdracht.jpg')">
+            <img src="images/cagniat-laurent-opdracht.jpg" alt="Opdracht van Laurent Cagniat">
+            <div class="cap">opdracht</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/cagniat-laurent-cover.jpg')">
+            <img src="images/cagniat-laurent-cover.jpg" alt="Cover van Doerakken">
+            <div class="cap">cover — Doerakken</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter-group" id="letter-D">
+    <div class="letter">D</div>
+
+    <div class="entry" data-key="dahan">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Dahan, Benoit</span>
+        <span class="entry-meta">Amiens '26</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Benoit Dahan</h3>
+            <div class="festivals"><span>Amiens 2026</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/dahan-benoit-opdracht.jpg')">
+            <img src="images/dahan-benoit-opdracht.jpg" alt="Opdracht van Benoit Dahan, voor Leon">
+            <div class="cap">opdracht — voor Leon</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/dahan-benoit-cover.jpg')">
+            <img src="images/dahan-benoit-cover.jpg" alt="Cover van In het hoofd van Sherlock Holmes">
+            <div class="cap">cover — Sherlock Holmes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry" data-key="dairin">
+      <button class="entry-tag" onclick="toggleEntry(this)">
+        <span class="name-plate">Dairin, Ian</span>
+        <span class="entry-meta">Buc '23</span>
+        <span class="chev">+</span>
+      </button>
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="bio">
+            <h3>Ian Dairin</h3>
+            <div class="festivals"><span>Buc 2023</span></div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/dairin-ian-portret.jpg')">
+            <img src="images/dairin-ian-portret.jpg" alt="Ian Dairin, portret">
+            <div class="cap">portret</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/dairin-ian-opdracht.jpg')">
+            <img src="images/dairin-ian-opdracht.jpg" alt="Opdracht van Ian Dairin, Kid Paddle">
+            <div class="cap">opdracht — Kid Paddle</div>
+          </div>
+          <div class="photo-card" onclick="openLightbox('images/dairin-ian-cover.jpg')">
+            <img src="images/dairin-ian-cover.jpg" alt="Cover van Kid Paddle 16">
+            <div class="cap">cover — Kid Paddle 16</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>gearchiveerd voor Leon</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+(function buildAlphaNav(){
+  const nav = document.getElementById('alpha-nav');
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for(const letter of alphabet){
+    const target = document.getElementById('letter-' + letter);
+    if(target){
+      const a = document.createElement('a');
+      a.href = '#letter-' + letter;
+      a.textContent = letter;
+      nav.appendChild(a);
+    } else {
+      const span = document.createElement('span');
+      span.textContent = letter;
+      nav.appendChild(span);
+    }
+  }
+})();
+
+function toggleEntry(btn){
+  const entry = btn.closest('.entry');
+  const wasOpen = entry.classList.contains('open');
+  document.querySelectorAll('.entry.open').forEach(e => e.classList.remove('open'));
+  if(!wasOpen){
+    entry.classList.add('open');
+    setTimeout(() => entry.scrollIntoView({behavior:'smooth', block:'nearest'}), 150);
+  }
+}
+
+function openLightbox(src){
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = src;
+  lb.classList.add('show');
+}
+function closeLightbox(e){
+  if(e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')){
+    document.getElementById('lightbox').classList.remove('show');
+  }
+}
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') document.getElementById('lightbox').classList.remove('show');
+});
+</script>
+
+</body>
+</html>
